@@ -17,7 +17,7 @@ class App extends Component {
 			images: [],
 			galleryLoaded: false
 		}
-		this.request = axios.create({
+		this.request = axios.create({ 
 			baseURL: 'https://peaceful-ocean-64701.herokuapp.com'
 		})
 	}
