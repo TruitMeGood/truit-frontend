@@ -1,0 +1,39 @@
+.full-screen-search {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+	padding: 30px 50px;
+	color: #fff;
+	vertical-align: middle;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.full-screen-search label {
+	font-size: 5vmin;
+	font-weight: 200;
+}
+.full-screen-search input[type=text] {
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid #fff;
+	width: 70%;
+	margin: 25px 0;
+	font-size: 4vmin;
+	letter-spacing: 5px;
+	padding-left: 0;
+	color: #fff;
+	outline: 0;
+	text-align: center;
+}
+.cta {
+	position: absolute;
+	border: 0;
+	border-bottom: 1px solid #fff;
+	display: flex;
+	flex-direction: flex-end;
+}

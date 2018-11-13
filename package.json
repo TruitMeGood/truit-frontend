@@ -3,9 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-atlas-obscura": "^1.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-images": "^0.5.19",
+    "react-placeholder": "^3.0.1",
+    "react-scripts": "2.1.1",
+    "react-sticky-footer": "^0.1.0-rc3",
+    "react-video-cover": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
