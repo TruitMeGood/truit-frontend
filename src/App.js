@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import AtlasObscura from 'node-atlas-obscura'
 import StickyFooter from 'react-sticky-footer'
 import ReactPlaceholder from 'react-placeholder';
+import axios from 'axios';
+
 import MainSection from './components/main-section'
 import Gallery from './components/gallery'
+
 
 import './App.css'
 import "react-placeholder/lib/reactPlaceholder.css";
@@ -15,14 +17,19 @@ class App extends Component {
 			images: [],
 			galleryLoaded: false
 		}
-		this.atlas = new AtlasObscura()
+		this.request = axios.create({
+			baseURL: 'https://peaceful-ocean-64701.herokuapp.com'
+		})
 	}
 
 	async componentDidMount() {
 		try {
-			const places = await this.atlas.getPopular()
+			const places = await this.request({
+				method:'GET',
+				url: '/popular'
+			})
 			this.setState({
-				images: places,
+				images: places.data,
 				galleryLoaded: true
 			})
 		} catch (err) {
