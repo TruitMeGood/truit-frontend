@@ -39,3 +39,10 @@
 .gallery .thumbnail:hover .title {
   visibility: visible;
 }
+
+@media only screen and (max-width: 800px) {
+  .gallery .thumbnail .title {
+    font-size: 14px;
+    word-break: break-all;
+  }
+}

@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 import { searchPlaces, clearPlaces } from '../../actions';
-import { push } from 'connected-react-router'
-import SearchFullScreen from './search.component'
+import { push } from 'connected-react-router';
+import SearchFullScreen from './search.component';
 
 const mapStateToProps = state => ({
-  value: state.rootReducer.searchTerm,
   searchResults: state.rootReducer.searchResults,
-  isLoading: state.rootReducer.isLoading,
+  isLoading: state.rootReducer.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
