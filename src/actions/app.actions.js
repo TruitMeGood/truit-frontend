@@ -65,6 +65,13 @@ export function searchPlaces(keyword) {
     }
 
     try {
+      dispatch({
+        type: SEARCH_PLACES,
+        payload: {
+          searchTerm: keyword,
+          placesItem: []
+        }
+      });
       const search = await api({
         method: 'POST',
         url: `/search`,
@@ -72,7 +79,6 @@ export function searchPlaces(keyword) {
           keyword: keyword
         }
       });
-      console.log('search', search);
       onSuccess(search.data);
     } catch (err) {
       onError(err);

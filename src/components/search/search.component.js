@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 import './style.css';
 
-const getSuggestionValue = suggestion => suggestion;
+const getSuggestionValue = suggestion => suggestion.display_name;
 const renderSuggestion = suggestion => <span>{suggestion.display_name}</span>;
 
 class SearchFullScreen extends Component {
@@ -23,7 +23,7 @@ class SearchFullScreen extends Component {
   };
 
   gotoPlace = (event, { suggestion }) => {
-    const { city, country } = suggestion;
+    const [city, country] = suggestion.display_name.split(', ');
     this.props.gotoPlace(city, country);
   };
 
