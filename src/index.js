@@ -9,7 +9,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import App from './App';
 import Place from './components/place';
-import Venue from './components/place';
+import Venue from './components/venue';
 import './index.css';
 
 ReactDOM.render(

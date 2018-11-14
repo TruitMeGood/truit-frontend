@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Gallery from './gallery.component';
+import Gallery from '../gallery';
 
 class Section extends Component {
     componentDidMount() {

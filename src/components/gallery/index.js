@@ -1,16 +1,22 @@
-import { connect } from 'react-redux';
-import { getPopularItems } from '../../actions';
-import Section from './section.component';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './style.css'
 
-const mapStateToProps = state => ({
-  items: state.rootReducer.popularItems
-});
+const Gallery = ({ items }) => {
+	if (!items) return
 
-const mapDispatchToProps = dispatch => ({
-  getPopular: () => dispatch(getPopularItems())
-});
+	const gallery = items.map(obj => {
+		return (
+			<Link to={`/venues/${obj.id}`} key={obj.id}>
+				<div className="thumbnail">
+					<img src={obj.img} alt={obj.title} className={'source'} />
+					<div className="title">{obj.title}</div>
+				</div>
+			</Link>
+		)
+	})
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Section);
+	return <div className="gallery">{gallery}</div>
+}
+
+export default Gallery

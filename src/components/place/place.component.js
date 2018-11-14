@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Gallery from '../gallery/gallery.component'
+import Gallery from '../gallery'
 import './style.css'
 
 class Place extends Component {

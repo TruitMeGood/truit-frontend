@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StickyFooter from 'react-sticky-footer';
 
 import MainSection from './components/main-section';
-import Gallery from './components/gallery';
+import Section from './components/section';
 
 import './App.css';
 import 'react-placeholder/lib/reactPlaceholder.css';
@@ -17,7 +17,7 @@ class App extends Component {
           <MainSection />
         </div>
         <div>
-          <Gallery />
+          <Section />
         </div>
         <StickyFooter
           normalStyles={{
