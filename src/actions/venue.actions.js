@@ -22,7 +22,9 @@ export function getDetails() {
     function onError(error) {
       dispatch({
         type: FETCH_VENUE_ERROR,
-        error
+        payload: {
+          error
+        }
       });
       return error;
     }
@@ -75,14 +77,19 @@ export function getInstagram() {
     function onError(error) {
       dispatch({
         type: FETCH_INSTAGRAM_ERROR,
-        error
+        payload: {
+          error
+        }
       });
       return error;
     }
 
     try {
       dispatch({
-        type: FETCH_INSTAGRAM
+        type: FETCH_INSTAGRAM,
+        payload: {
+          instaPosts: []
+        }
       });
       const place = getState().rootReducer.venue;
       const venues = await api({

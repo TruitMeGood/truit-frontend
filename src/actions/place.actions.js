@@ -20,7 +20,9 @@ export function getVenues() {
     function onError(error) {
       dispatch({
         type: FETCH_PLACES_ERROR,
-        error
+        payload: {
+          error
+        }
       });
       return error;
     }

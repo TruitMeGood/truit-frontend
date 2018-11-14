@@ -24,7 +24,9 @@ export function getPopularItems() {
     function onError(error) {
       dispatch({
         type: FETCH_POPULAR_ERROR,
-        error
+        payload: {
+          error
+        }
       });
       return error;
     }
@@ -59,7 +61,9 @@ export function searchPlaces(keyword) {
     function onError(error) {
       dispatch({
         type: SEARCH_PLACES_ERROR,
-        error
+        payload: {
+          error
+        }
       });
       return error;
     }

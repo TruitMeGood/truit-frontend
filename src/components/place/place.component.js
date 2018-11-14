@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Gallery from '../gallery';
 import NavBar from '../navbar';
 import './style.css';
-import { black } from 'ansi-colors';
 
 class Place extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class Place extends Component {
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
         placeId
-      )})`,
+      ).replace(/[!'()*]/g, escape)})`,
       backgroundSize: 'cover'
     };
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Gallery from '../gallery';
 import NavBar from '../navbar';
 import './style.css';
-import { black } from 'ansi-colors';
 
 class Venue extends Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class Venue extends Component {
   }
 
   render() {
-    const { venueId, venueName } = this.state;
+    const { venueName } = this.state;
     const { posts, venue } = this.props;
     console.log(encodeURI(venueName));
     const style = {
