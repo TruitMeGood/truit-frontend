@@ -30,7 +30,7 @@ class SearchFullScreen extends Component {
 		return (
 			<div className="full-screen-search">
 				<label className="search-label">{isLoading ? <div>
-					Loading
+					Fetching the best places for you
 					<Dot>.</Dot>
 					<Dot>.</Dot>
 					<Dot>.</Dot>
@@ -44,7 +44,7 @@ class SearchFullScreen extends Component {
 						getSuggestionValue={getSuggestionValue}
 						renderSuggestion={renderSuggestion}
 						inputProps={{
-							placeholder: "",
+							placeholder: "Paris, France",
 							value,
 							onChange: this.onChange,
 							autoFocus:true
