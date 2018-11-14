@@ -11,7 +11,8 @@ export function getVenues() {
       dispatch({
         type: FETCH_PLACES_SUCCESS,
         payload: {
-          placeItems: items
+          placeItems: items,
+          instaPosts: []
         }
       });
     }
@@ -31,7 +32,7 @@ export function getVenues() {
       const place = getState().rootReducer.place;
       const popular = await api({
         method: 'POST',
-        url: '/places',
+        url: `/places/${place.city}`,
         data: {
           city: place.city,
           country: place.country

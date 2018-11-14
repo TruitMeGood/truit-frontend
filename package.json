@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^5.0.1",
+    "instagram-web-api": "^2.0.0",
     "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-animated-dots": "^1.0.0",

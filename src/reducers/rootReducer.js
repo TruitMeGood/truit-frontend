@@ -1,12 +1,14 @@
 const initialState = {
   popularItems: [],
   placeItems: [],
+  instaPosts: [],
   searchResults: [],
   searchTerm: '',
   isLoading: false,
   isError: false,
   error: {},
-  place: {}
+  place: {},
+  venue: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -73,6 +75,49 @@ const rootReducer = (state = initialState, action) => {
         isLoading: false
       };
     case 'FETCH_PLACES_ERROR':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'SET_VENUE':
+      return {
+        ...state,
+        ...action.payload
+      };
+    case 'FETCH_VENUE':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: true,
+        isError: false
+      };
+    case 'FETCH_VENUE_SUCCESS':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_VENUE_ERROR':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_INSTAGRAM':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: true,
+        isError: false
+      };
+    case 'FETCH_INSTAGRAM_SUCCESS':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_INSTAGRAM_ERROR':
       return {
         ...state,
         ...action.payload,
