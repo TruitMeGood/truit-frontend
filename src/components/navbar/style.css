@@ -2,14 +2,13 @@
   position: absolute;
   z-index: 3;
   height: 50px;
-  display: flex;
-  top: 0;
-  right: 20px;
+  width: 100vw;
+  display: inline-flex;
+  text-align: right;
   flex-direction: column;
 }
 
 .navbar a {
-  color: white;
   text-decoration: none;
   display: inline-flex;
   padding: 10px 20px 2px 10px;
@@ -17,6 +16,26 @@
   font-weight: 200;
 }
 
-.navbar a:hover {
+.white {
+  background: rgba(255,255,255,0.5);
+}
+
+.white a {
+  color: white;
+}
+
+.white a:hover {
   border-bottom: 1px solid white;
+}
+
+.black {
+  background: rgba(255,255,255,1);
+}
+
+.black a {
+  color: black;
+}
+
+.black a:hover {
+  border-bottom: 1px solid black;
 }

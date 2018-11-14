@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import './style.css';
 
-const NavBar = () => (
-  <div className="navbar">
+const NavBar = ({theme = 'white'}) => (
+  <div className={`navbar ${theme}`}>
     <div>
       <Link to="/">Home</Link>
       <Link to="/hello">Hello</Link>
