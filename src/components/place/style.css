@@ -1,0 +1,9 @@
+.place {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.place .content {
+    padding: 2%;
+}

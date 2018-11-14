@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   searchPlaces: keyword => dispatch(searchPlaces(keyword)),
   clearPlaces: () => dispatch(clearPlaces()),
-  gotoPlace: (city, country) => dispatch(push(`/places/${country}-${city}`))
+  gotoPlace: (city, country) => dispatch(push(`/places/${city}-${country}`))
 });
 
 export default connect(

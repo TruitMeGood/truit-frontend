@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getPopularItems } from '../../actions';
-import Gallery from './gallery.component';
+import Section from './section.component';
 
 const mapStateToProps = state => ({
   items: state.rootReducer.popularItems
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Gallery);
+)(Section);

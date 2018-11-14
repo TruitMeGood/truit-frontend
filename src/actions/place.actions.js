@@ -1,16 +1,17 @@
 import {
 	FETCH_PLACES,
 	FETCH_PLACES_SUCCESS,
-	FETCH_PLACES_ERROR
+	FETCH_PLACES_ERROR,
+	SET_PLACE
 } from '../types'
 
-export function getPlaces(city, country) {
-	return async (dispatch, getState, api) => {
+export function getVenues() {
+	return async (dispatch, getState, { api }) => {
 		function onSuccess(items) {
 			dispatch({
 				type: FETCH_PLACES_SUCCESS,
 				payload: {
-					placesItems: items
+					placeItems: items
 				}
 			})
 		}
@@ -27,17 +28,35 @@ export function getPlaces(city, country) {
 			dispatch({
 				type: FETCH_PLACES
 			})
+			console.log(getState())
+			const place = getState().rootReducer.place
+			console.log(place)
 			const popular = await api({
 				method: 'POST',
-                url: '/places',
-                data: {
-                    city,
-                    country
-                }
+				url: '/places',
+				data: {
+					city: place.city,
+					country: place.country
+				}
 			})
 			onSuccess(popular.data)
 		} catch (err) {
 			onError(err)
 		}
+	}
+}
+
+export function setPlace(placeId, city, country) {
+	return dispatch => {
+		return dispatch({
+			type: SET_PLACE,
+			payload: {
+				place: {
+					placeId,
+					city,
+					country
+				}
+			}
+		})
 	}
 }

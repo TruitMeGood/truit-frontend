@@ -1,10 +1,12 @@
 const initialState = {
   popularItems: [],
+  placeItems: [],
   searchResults: [],
   searchTerm: '',
   isLoading: false,
   isError: false,
-  error: {}
+  error: {},
+  place: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -51,6 +53,30 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         searchResults: [],
         searchTerm: ''
+      };
+    case 'SET_PLACE':
+      return {
+        ...state,
+        ...action.payload
+      };
+    case 'FETCH_PLACES':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: true,
+        isError: false
+      };
+    case 'FETCH_PLACES_SUCCESS':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_PLACES_ERROR':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
       };
     default:
       return state;

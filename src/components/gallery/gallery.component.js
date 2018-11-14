@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-class Gallery extends Component {
-  componentDidMount() {
-    this.props.getPopular();
-  }
-
-  render() {
-    const { items } = this.props;
+const Gallery = ({items}) => {
     if (!items) return;
 
     const gallery = items.map((obj, i) => {
@@ -24,6 +18,5 @@ class Gallery extends Component {
 
     return <div className="gallery">{gallery}</div>;
   }
-}
 
 export default Gallery;

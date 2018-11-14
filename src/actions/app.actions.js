@@ -11,7 +11,7 @@ import {
 import { filterGeos } from './utils.js'
 
 export function getPopularItems() {
-	return async (dispatch, getState, api) => {
+	return async (dispatch, getState, {api}) => {
 		function onSuccess(items) {
 			dispatch({
 				type: FETCH_POPULAR_SUCCESS,
@@ -45,7 +45,7 @@ export function getPopularItems() {
 }
 
 export function searchPlaces(keyword) {
-	return async (dispatch, getState, api) => {
+	return async (dispatch, getState, {api}) => {
 		function onSuccess(items) {
 			const geos = items.geos ? filterGeos(items.geos) : []
 			dispatch({

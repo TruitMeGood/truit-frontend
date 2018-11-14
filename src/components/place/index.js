@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { getPopularItems } from '../../actions';
+import { setPlace, getVenues } from '../../actions';
 import Place from './place.component';
 
 const mapStateToProps = state => ({
-  items: state.rootReducer.popularItems
+  items: state.rootReducer.placeItems
 });
 
 const mapDispatchToProps = dispatch => ({
-  getPopular: () => dispatch(getPopularItems())
+  setPlace: (placeId, city, country) => dispatch(setPlace(placeId, city, country)),
+  getVenues: () => dispatch(getVenues())
 });
 
 export default connect(
