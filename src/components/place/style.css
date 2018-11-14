@@ -25,17 +25,13 @@
     font-weight: 200;
 }
 
-
-@media only screen and (max-width : 1360px) {     
-    .place {
-        flex-direction: column;
-    }
-    
+@media only screen and (max-width : 800px) {
     .place .photo {
-        width: 100vw;
+        display:none;
     }
 
     .place .content {
+        padding-top: 50px;
         width: 100vw;
     }
 }
