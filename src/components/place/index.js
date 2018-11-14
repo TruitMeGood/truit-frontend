@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getPopularItems } from '../../actions';
+import Place from './place.component';
 
-const Place = query => {
-  const placeId = query.match.params.id;
-  console.log(placeId);
-  return <div>Match</div>;
-};
+const mapStateToProps = state => ({
+  items: state.rootReducer.popularItems
+});
 
-export default Place;
+const mapDispatchToProps = dispatch => ({
+  getPopular: () => dispatch(getPopularItems())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Place);

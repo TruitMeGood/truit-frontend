@@ -13,7 +13,7 @@ class Gallery extends Component {
 
     const gallery = items.map((obj, i) => {
       return (
-        <Link to={`places/${obj.id}`} key={obj.id}>
+        <Link to={`venues/${obj.id}`} key={obj.id}>
           <div className="thumbnail">
             <img src={obj.img} alt={obj.title} className={'source'} />
             <div className="title">{obj.title}</div>

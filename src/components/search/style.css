@@ -20,6 +20,7 @@
 
 .full-screen-search input[type='text'] {
   background: transparent;
+  position: relative;
   border: 0;
   border-bottom: 1px solid #fff;
   text-transform: capitalize;
@@ -35,7 +36,7 @@
 
 .react-autosuggest__suggestions-container--open {
   display: inline-flex;
-  position: relative;
+  position: position;
   width: 70%;
   border: 1px solid #aaa;
   background-color: rgba(255,255,255,0.7);

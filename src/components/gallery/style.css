@@ -10,13 +10,10 @@
 .gallery .thumbnail {
   position: relative;
   box-sizing: border-box;
-  display: inline-flex;
-  flex-direction: column;
-  float: left;
+  display: flex;
   line-height: 0;
-  padding-right: 10px;
-  padding-bottom: 10px;
   overflow: hidden;
+  margin: 2%;
 }
 
 .gallery .thumbnail .title {

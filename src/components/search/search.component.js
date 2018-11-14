@@ -4,12 +4,17 @@ import { Dot } from 'react-animated-dots';
 
 import './style.css'
 
-const getSuggestionValue = suggestion => suggestion.display_name
+const getSuggestionValue = suggestion => suggestion
 const renderSuggestion = suggestion => <span>{suggestion.display_name}</span>
 
 class SearchFullScreen extends Component {
 	onChange = (event, { newValue }) => {
 		console.log(newValue)
+	}
+
+	gotoPlace = (event, { suggestion }) => {
+		const { city, country } = suggestion
+		this.props.gotoPlace(city, country)
 	}
 
 	onSuggestionsFetchRequested = ({ value }) => {
@@ -33,6 +38,7 @@ class SearchFullScreen extends Component {
 				<div>
 					<Autosuggest
 						suggestions={searchResults}
+						onSuggestionSelected={(evt, item) => this.gotoPlace(evt, item)}
 						onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
 						onSuggestionsClearRequested={this.onSuggestionsClearRequested}
 						getSuggestionValue={getSuggestionValue}

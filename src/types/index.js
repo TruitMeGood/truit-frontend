@@ -1,9 +1,2 @@
-export const FETCH_POPULAR = 'FETCH_POPULAR'
-export const FETCH_POPULAR_SUCCESS = 'FETCH_POPULAR_SUCCESS'
-export const FETCH_POPULAR_ERROR = 'FETCH_POPULAR_ERROR'
-
-export const SEARCH_PLACES = 'SEARCH_PLACES'
-export const SEARCH_PLACES_SUCCESS = 'SEARCH_PLACES_SUCCESS'
-export const SEARCH_PLACES_ERROR = 'SEARCH_PLACES_ERROR'
-
-export const CLEAR_PLACES = 'CLEAR_PLACES'
+export * from './app.types'
+export * from './place.types'

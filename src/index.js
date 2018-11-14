@@ -9,6 +9,7 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import App from './App';
 import Place from './components/place';
+import Venue from './components/place';
 import './index.css';
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/places/:id" component={Place} />
+          <Route path="/venues/:id" component={Venue} />
           <Route render={() => <div>Miss</div>} />
         </Switch>
       </div>
