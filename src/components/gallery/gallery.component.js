@@ -8,7 +8,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const { items, onClick } = this.props;
+    const { items } = this.props;
     if (!items) return;
 
     const gallery = items.map((obj, i) => {

@@ -37,8 +37,6 @@ class MainSection extends Component {
     return (
       <div style={style}>
         <SearchFullScreen
-          value={this.state.value}
-          onChange={this.handleChange}
         />
       </div>
     );
