@@ -1,8 +1,7 @@
 import { MAP_LOADED } from '../types'
 
 const initialState = {
-    isLoaded: false,
-    mapToken: "pk.eyJ1IjoiZHJwZXBwIiwiYSI6ImNqbmQ0b2hvdjAzeHIzd280dHdidWdrdHAifQ.s9MK81QnHaF-dJ674NNTyg"
+    isLoaded: false
 }
 
 function mapReducer(state = initialState, action) {
