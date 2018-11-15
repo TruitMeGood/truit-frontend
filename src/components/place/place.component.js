@@ -6,7 +6,7 @@ import './style.css';
 class Place extends Component {
   constructor(props) {
     super(props);
-    console.log(props.match.params.id);
+
     this.state = {
       placeId: decodeURI(props.match.params.id),
       city: decodeURI(props.match.params.id).split('-')[0],
@@ -22,7 +22,7 @@ class Place extends Component {
   render() {
     const { city, country, placeId } = this.state;
     const { items } = this.props;
-    console.log(placeId);
+    
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
         placeId
