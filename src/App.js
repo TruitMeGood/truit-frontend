@@ -9,10 +9,29 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 import NavBar from './components/navbar';
 
 class App extends Component {
+ /* constructor() {
+    super()
+    this.state= {
+      scrollTheme: 'white'
+    }
+    this.handleScroll = this.handleScroll.bind(this);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    const mainsectionHeight = document.querySelector('.section').clientHeight
+    const actualScroll = window.scrollY;
+
+    this.setState({
+      scrollTheme: (actualScroll >= (mainsectionHeight - 50)) ? 'black' : 'white'
+    })
+  }*/
+
   render() {
+    //const { scrollTheme } = this.state
     return (
       <div className="App">
-        <NavBar />
+        <NavBar theme="white"/>
         <div className="section">
           <MainSection />
         </div>

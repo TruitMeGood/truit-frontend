@@ -35,7 +35,8 @@ class Place extends Component {
         <NavBar theme="black" />
         <div className="photo" style={style} />
         <div className="content">
-          <h1>{`Check out these amazing places in ${city}, ${country}`}</h1>
+          <h1>{`Hey that's cool you wanna visit ${city}, ${country} !`}</h1>
+          <h2>{`While you're at it, you might also wanna check out these ${items.length} amazing places`}</h2>
           <Gallery items={items} />
         </div>
       </div>

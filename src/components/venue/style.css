@@ -1,34 +1,42 @@
 .venue {
-  height: 100vh;
-  width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .venue .photo {
-  height: 100vh;
-  width: 30vw;
+  height: 90vh;
+  width: 100vw;
   opacity: 0.7;
   z-index: 3;
 }
 
-.venue .content {
-  width: 70vw;
-  height: auto;
-  padding: 2% 0% 0 2%;
-  flex: initial;
-  overflow: scroll;
+.venue .photo .infos {
+  width: fit-content;
+  display: flex;
+  height: 90%;
+  justify-content: flex-end;
+  margin: 0 0 10% 10%;
+  color: white;
+  flex-direction: column;
+}
+.venue .photo .infos h1 {
+  font-size: 7vmin;
+  font-weight: 200;
 }
 
-.venue .content h1 {
+.venue .photo .infos h2 {
   font-size: 5vmin;
   font-weight: 200;
 }
 
-.venue .content h2 {
-  font-size: 4vmin;
-  font-weight: 200;
+.venue .content {
+  width: 100w;
+  height: auto;
+  flex: initial;
+  overflow: scroll;
 }
+
+
 
 .venue .content p {
   font-size: 3vmin;
@@ -52,5 +60,9 @@
     padding: 5%;
     padding-top: 50px;
     width: 100vw;
+  }
+
+  .venue .content .instagram-posts {
+    width: 90wv;
   }
 }

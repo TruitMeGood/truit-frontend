@@ -7,7 +7,7 @@ const Gallery = ({ items }) => {
 
   const gallery = items.map(obj => {
     return (
-      <Link to={`/venues/${obj.id}-${obj.title}`} key={obj.id}>
+      <Link to={`/venues/${obj.id}-${obj.title},${obj.location}`} key={obj.id}>
         <div className="thumbnail">
           <img src={obj.img} alt={obj.title} className={'source'} />
           <div className="title">{obj.title}</div>
@@ -16,7 +16,7 @@ const Gallery = ({ items }) => {
     );
   });
 
-  return <div className="gallery">{gallery}</div>;
+  return (gallery && <div className="gallery">{gallery}</div>);
 };
 
 export default Gallery;

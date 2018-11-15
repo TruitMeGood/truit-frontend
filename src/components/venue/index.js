@@ -3,6 +3,7 @@ import { setVenue, getDetails, getInstagram } from '../../actions';
 import Venue from './venue.component';
 
 const mapStateToProps = state => ({
+  isLoading: state.rootReducer.isLoading,
   venue: state.rootReducer.venue,
   posts: state.rootReducer.instaPosts
 });

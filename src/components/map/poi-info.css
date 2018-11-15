@@ -1,0 +1,33 @@
+.poiInfo-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.poiInfo-header .poiInfo-title {
+	text-align: center;
+}
+.poiInfo-header .poiInfo-title:first-letter {
+	text-transform: uppercase;
+}
+
+.poiInfo-header .poiInfo-date {
+	color: grey;
+	text-align: center;
+}
+
+.poiInfo-cta {
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.poiInfo-cta > * {
+	width: 100%;
+}
+
+.poiInfo-cta button {
+	width: 100%;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}

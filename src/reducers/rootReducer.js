@@ -1,4 +1,5 @@
 const initialState = {
+  mapToken: "pk.eyJ1IjoiZHJwZXBwIiwiYSI6ImNqbmQ0b2hvdjAzeHIzd280dHdidWdrdHAifQ.s9MK81QnHaF-dJ674NNTyg",
   popularItems: [],
   placeItems: [],
   instaPosts: [],
