@@ -29,8 +29,8 @@ class Venue extends Component {
 	render() {
 		const { venueName } = this.state
 		const { posts, venue, isLoading } = this.props
-		console.log(encodeURI(venueName))
-		const style = {
+    
+    const style = {
 			backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
 				venueName
 			).replace(/[!'()*]/g, escape)})`,
@@ -56,8 +56,8 @@ class Venue extends Component {
                   fontWeight: 200
                 }}/>)
             }
-            {!isLoading && venue.coordinates && <Map />}
-						{!isLoading && posts.length && (
+            {!isLoading && venue && venue.coordinates && <Map />}
+						{!isLoading && venueName && (
 							<div className="instagram-posts">
 								<h2>{`Check out these amazing photos taken at ${venueName}`}</h2>
 								<Gallery items={posts} />

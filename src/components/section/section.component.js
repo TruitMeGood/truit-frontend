@@ -8,7 +8,7 @@ class Section extends Component {
 
     render() {
         const { items } = this.props
-        return (<Gallery items = {items} />)
+        return items.length && (<Gallery items = {items} />)
     }
 }
 
