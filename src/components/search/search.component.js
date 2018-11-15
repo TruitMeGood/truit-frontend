@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
-import { Dot } from 'react-animated-dots';
+import Loading from '../loading';
 import _ from 'lodash';
 
 import './style.css';
@@ -42,12 +42,7 @@ class SearchFullScreen extends Component {
       <div className="full-screen-search">
         <label className="search-label">
           {isLoading ? (
-            <div>
-              Fetching the best places for you
-              <Dot>.</Dot>
-              <Dot>.</Dot>
-              <Dot>.</Dot>
-            </div>
+            <Loading text="Fetching the best places for you" />
           ) : searchResults.length ? (
             `We found ${searchResults.length} results for your search`
           ) : (

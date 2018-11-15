@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Loading from '../loading';
+
 import Gallery from '../gallery'
 import NavBar from '../navbar'
 import Map from '../map'
@@ -46,6 +48,14 @@ class Venue extends Component {
 						</div>
 					</div>
 					<div className="content">
+            {isLoading && (
+              <Loading text="You're almost there" additionalStyle={
+                {
+                  paddingTop: 10,
+                  fontSize: '5vmin',
+                  fontWeight: 200
+                }}/>)
+            }
             {!isLoading && venue.coordinates && <Map />}
 						{!isLoading && posts.length && (
 							<div className="instagram-posts">

@@ -36,7 +36,10 @@
   overflow: scroll;
 }
 
-
+.venue .content .loading {
+  font-size: 5vmin;
+  font-weight: 200;
+}
 
 .venue .content p {
   font-size: 3vmin;
