@@ -1,4 +1,4 @@
-import { mapToken } from '../config/config/.json'
+import { mapToken } from '../config/config.json'
 
 const initialState = {
   mapToken: mapToken,
