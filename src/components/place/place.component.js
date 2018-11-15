@@ -9,8 +9,8 @@ class Place extends Component {
 
     this.state = {
       placeId: decodeURI(props.match.params.id),
-      city: decodeURI(props.match.params.id).split('-')[0],
-      country: decodeURI(props.match.params.id).split('-')[1]
+      city: decodeURI(props.match.params.id).split('_')[0],
+      country: decodeURI(props.match.params.id).split('_')[1]
     };
   }
   componentDidMount() {
@@ -22,7 +22,7 @@ class Place extends Component {
   render() {
     const { city, country, placeId } = this.state;
     const { items } = this.props;
-    
+
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
         placeId

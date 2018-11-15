@@ -10,8 +10,8 @@ class Venue extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			venueId: props.match.params.id.split('-')[0],
-			venueName: decodeURI(props.match.params.id.split('-')[1])
+			venueId: props.match.params.id.split('_')[0],
+			venueName: decodeURI(props.match.params.id.split('_')[1])
 		}
 	}
 	async componentDidMount() {

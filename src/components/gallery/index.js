@@ -7,7 +7,7 @@ const Gallery = ({ items }) => {
 
   const gallery = items.map(obj => {
     return (
-      <Link to={`/venues/${obj.id}-${obj.title},${obj.location}`} key={obj.id}>
+      <Link to={`/venues/${obj.id}_${obj.title},${obj.location}`} key={obj.id}>
         <div className="thumbnail">
           <img src={obj.img} alt={obj.title} className={'source'} />
           <div className="title">{obj.title}</div>
