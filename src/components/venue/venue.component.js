@@ -24,7 +24,16 @@ class Venue extends Component {
 		} catch (err) {
 			console.log(err)
 		}
-	}
+  }
+  
+  mapNearbyPlaces(nearbyPlaces) {
+    return nearbyPlaces.map(nearby => ({
+      id: nearby.id,
+      title: nearby.title,
+      location: nearby.location,
+      img: nearby.thumbnail_url
+    }))
+  }
 
 	render() {
 		const { venueName } = this.state
@@ -61,6 +70,12 @@ class Venue extends Component {
 							<div className="instagram-posts">
 								<h2>{`Check out these amazing photos taken at ${venueName}`}</h2>
 								<Gallery items={posts} />
+							</div>
+            )}
+            {!isLoading && venue && venue.nearby_places && (
+							<div>
+								<h2>{`While you there, why don't you check these ${venue.nearby_places.length} cool places next to ${venue.title}`}</h2>
+								<Gallery items={this.mapNearbyPlaces(venue.nearby_places)} />
 							</div>
 						)}
 					</div>

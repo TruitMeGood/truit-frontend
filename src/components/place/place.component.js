@@ -24,9 +24,7 @@ class Place extends Component {
     const { items } = this.props;
 
     const style = {
-      backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
-        placeId
-      ).replace(/[!'()*]/g, escape)})`,
+      backgroundImage: `url(https://source.unsplash.com/featured/?${city},${country}`,
       backgroundSize: 'cover'
     };
 

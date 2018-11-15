@@ -8,6 +8,7 @@
   width: 100vw;
   opacity: 0.7;
   z-index: 3;
+  background-position: center bottom;
 }
 
 .venue .photo .infos {
