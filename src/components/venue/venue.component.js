@@ -25,6 +25,10 @@ class Venue extends Component {
 			console.log(err)
 		}
   }
+
+  componentWillReceiveProps(nextProps){
+    console.log('route chnaged', nextProps)
+ }
   
   mapNearbyPlaces(nearbyPlaces) {
     return nearbyPlaces.map(nearby => ({

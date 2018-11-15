@@ -20,7 +20,7 @@ class Place extends Component {
   }
 
   render() {
-    const { city, country, placeId } = this.state;
+    const { city, country } = this.state;
     const { items } = this.props;
 
     const style = {
