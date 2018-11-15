@@ -39,7 +39,7 @@ export function getDetails() {
         url: `/place/${place.id}`,
         data: {
           placeId: place.id,
-          placeOnly: true
+          placeOnly: false
         }
       });
       onSuccess(venue.data);
@@ -94,7 +94,7 @@ export function getInstagram() {
       const place = getState().rootReducer.venue;
       const venues = await api({
         method: 'POST',
-        url: '/insta',
+        url: `/insta/${place.title}`,
         data: {
           title: place.title,
           latitude: place.coordinates.lat,
