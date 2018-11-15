@@ -59,13 +59,13 @@ class Map extends React.Component {
 			venue
 		} = this.props
 		return (
-			<div className="map-container" style={{width: '100vw', height: '100vh'}}>
+			<div className="map-container">
 			<MapGL
 				{...mapState}
 				mapStyle="mapbox://styles/mapbox/light-v9"
 				showZoomControls={false}
 				width={'100%'}
-				height={'70%'}
+				height={'100%'}
 				onLoad={loadMap}
 				onError={(err) => console.log(err)}
 				mapboxApiAccessToken={mapToken}

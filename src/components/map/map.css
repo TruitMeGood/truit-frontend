@@ -6,7 +6,15 @@
     text-align: left;
     display: flex;
     justify-content: space-evenly;
+    width: 100vw;
+    height: 70vh;
 }
 .mapboxgl-map {
     display: flex;
+}
+
+@media only screen and (max-width: 800px) {
+    .map-container {
+        width: auto;
+    }
 }
