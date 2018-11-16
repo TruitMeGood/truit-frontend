@@ -6,15 +6,23 @@ import './style.css'
 class NavBar extends React.Component {
 	constructor(props) {
 		super(props)
+		this.handleScroll = this.handleScroll.bind(this)
 	}
 
 	componentDidMount() {
 		const { elementToWatch } = this.props
-		window.addEventListener('scroll', this.handleScroll(elementToWatch))
+		if (elementToWatch) {
+			window.addEventListener('scroll', () => this.handleScroll(elementToWatch))
+		}
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.handleScroll)
+		const { elementToWatch } = this.props
+		if (elementToWatch) {
+			window.removeEventListener('scroll', () =>
+				this.handleScroll(elementToWatch)
+			)
+		}
 	}
 
 	handleScroll(elementToWatch) {
