@@ -7,7 +7,9 @@ import rootReducer from './rootReducer'
 
 export default history =>
 	combineReducers({
-		map: enhanceMapReducer(mapReducer),
+		map: enhanceMapReducer(mapReducer, {
+      scrollZoom: false
+    }),
 		router: connectRouter(history),
 		rootReducer
 	})

@@ -52,7 +52,7 @@ class Venue extends Component {
 
 		return (
 			<div>
-				<NavBar back />
+        <NavBar theme="white" elementToWatch=".photo" />
 				<div className="venue">
 					<div className="photo" style={style}>
 						<div className="infos">

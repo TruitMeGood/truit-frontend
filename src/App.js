@@ -31,7 +31,7 @@ class App extends Component {
     //const { scrollTheme } = this.state
     return (
       <div className="App">
-        <NavBar theme="white"/>
+        <NavBar theme="white" elementToWatch=".section" />
         <div className="section">
           <MainSection />
         </div>
