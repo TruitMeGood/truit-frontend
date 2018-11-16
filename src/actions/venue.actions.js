@@ -103,7 +103,7 @@ export function getInstagram() {
           longitude: place.coordinates.lng
         }
       });
-      const mediaArray = venues.data.map(venue => ({
+      const mediaArray = venues.data.edge_location_to_media.edges.map(venue => ({
         id: venue.node.id,
         img: venue.node.thumbnail_src,
         title: 'insta'
