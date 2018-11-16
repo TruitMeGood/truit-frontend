@@ -26,7 +26,7 @@
   margin-bottom: 0;
   width: fit-content;
   padding: 0 10px;
-  background: rgba(0,0,0,0.5)
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .venue .photo .infos p {
@@ -36,10 +36,11 @@
   max-width: 90%;
   line-height: 2;
   padding: 0 10px;
-  background: rgba(0,0,0,0.5)
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.venue .content .infos h1, .venue .content .infos p {
+.venue .content .infos h1,
+.venue .content .infos p {
   display: none;
 }
 
@@ -58,7 +59,7 @@
 .venue .content h2 {
   display: flex;
   justify-content: center;
-  text-align:center;
+  text-align: center;
   font-size: 5vmin;
   font-weight: 400;
 }
@@ -80,6 +81,15 @@
   padding-top: 0;
 }
 
+.venue .content .instagram-posts .gallery .thumbnail {
+  max-width: 320px;
+  max-height: 320px;
+}
+
+.venue .content .instagram-posts .gallery .thumbnail {
+  width: -webkit-fill-available;
+}
+
 @media only screen and (max-width: 800px) {
   .venue .photo {
     display: none;
@@ -95,18 +105,20 @@
     font-size: 8vmin;
     font-weight: 200;
   }
-  
+
   .venue .content .infos p {
     font-size: 3vmin;
     font-weight: 400;
   }
-  
-  .venue .content .infos h1, .venue .content .infos p {
+
+  .venue .content .infos h1,
+  .venue .content .infos p {
     display: inherit;
     color: black;
   }
 
-  .venue .photo .infos h1, .venue .photo .infos p {
+  .venue .photo .infos h1,
+  .venue .photo .infos p {
     display: none;
   }
 
