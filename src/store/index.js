@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -7,7 +7,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createRootReducer from '../reducers';
 import { api } from '../api';
 
-const history = createBrowserHistory();
+const history = createHashHistory({
+  hashType: 'slash'
+})
 const composeEnhancers = composeWithDevTools({});
 
 const store = createStore(
