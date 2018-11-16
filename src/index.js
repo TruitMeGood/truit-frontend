@@ -19,7 +19,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route name=":id" path="/places/:id" component={Place} />
-          <Route name=":id" path="/venues/:id" component={Venue} />
+          <Route name=":id" path="/venues/:id" render={(props) => (<Venue {...props} />)} />
           <Route render={() => <div>Miss</div>} />
         </Switch>
       </div>

@@ -32,7 +32,14 @@ class Venue extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log('route chnaged', nextProps)
+    console.log('route chnaged', nextProps)
+    if(nextProps && this.props.match.params.id !== nextProps.match.params.id) {
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
+      window.location.reload()
+      
+    }
 	}
 
 	mapNearbyPlaces(nearbyPlaces) {
