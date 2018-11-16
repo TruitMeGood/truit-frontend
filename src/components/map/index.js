@@ -10,6 +10,7 @@ function mapStateToProps(state) {
     mapLoaded: state.map.isLoaded,
     mapState: state.map.viewport.toJS(),
     venue: state.rootReducer.venue,
+    shouldDisplayNearbyVenues: state.rootReducer.shouldDisplayNearbyVenues
   }
 }
 

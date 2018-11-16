@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import VisibilitySensor from 'react-visibility-sensor'
+
 import Loading from '../loading'
 
 import Gallery from '../gallery'
@@ -11,9 +13,12 @@ class Venue extends Component {
 		super(props)
 		this.state = {
 			venueId: props.match.params.id.split('_')[0],
-			venueName: decodeURI(props.match.params.id.split('_')[1])
+			venueName: decodeURI(props.match.params.id.split('_')[1]),
+			isVisibilitySensorActive: true
 		}
+		this.dispatchNearbyPlaces = this.dispatchNearbyPlaces.bind(this)
 	}
+
 	async componentDidMount() {
 		try {
 			const { venueId, venueName } = this.state
@@ -39,8 +44,17 @@ class Venue extends Component {
 		}))
 	}
 
+	dispatchNearbyPlaces(isVisible) {
+		if (isVisible) {
+			this.setState({
+				isVisibilitySensorActive: false
+			})
+			this.props.displayNearbyPlacesOnMap()
+		}
+	}
+
 	render() {
-		const { venueName } = this.state
+		const { venueName, isVisibilitySensorActive } = this.state
 		const { posts, venue, isLoading } = this.props
 
 		const style = {
@@ -52,7 +66,7 @@ class Venue extends Component {
 
 		return (
 			<div>
-        <NavBar theme="white" elementToWatch=".photo" />
+				<NavBar theme="white" elementToWatch=".photo" />
 				<div className="venue">
 					<div className="photo" style={style}>
 						<div className="infos">
@@ -83,12 +97,17 @@ class Venue extends Component {
 							</div>
 						)}
 						{!isLoading && venue && venue.nearby_places && (
-							<div>
-								<h2>{`While you there, why don't you check these ${
-									venue.nearby_places.length
-								} cool places next to ${venue.title}`}</h2>
-								<Gallery items={this.mapNearbyPlaces(venue.nearby_places)} />
-							</div>
+							<VisibilitySensor
+								onChange={this.dispatchNearbyPlaces}
+								active={isVisibilitySensorActive}>
+								<div>
+									<h2>{`While you there, why don't you check these ${
+										venue.nearby_places.length
+									} cool places next to ${venue.title} ?`}</h2>
+									<p>{`We added them on the map`}</p>
+									<Gallery items={this.mapNearbyPlaces(venue.nearby_places)} />
+								</div>
+							</VisibilitySensor>
 						)}
 					</div>
 				</div>

@@ -11,7 +11,8 @@ const initialState = {
   isError: false,
   error: {},
   place: {},
-  venue: {}
+  venue: {},
+  shouldDisplayNearbyVenues: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -121,6 +122,12 @@ const rootReducer = (state = initialState, action) => {
         isLoading: false
       };
     case 'FETCH_INSTAGRAM_ERROR':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'NEARBY_VENUES_VISIBLE':
       return {
         ...state,
         ...action.payload,

@@ -5,7 +5,8 @@ import {
   SET_VENUE,
   FETCH_INSTAGRAM,
   FETCH_INSTAGRAM_SUCCESS,
-  FETCH_INSTAGRAM_ERROR
+  FETCH_INSTAGRAM_ERROR,
+  NEARBY_VENUES_VISIBLE
 } from '../types';
 
 export function getDetails() {
@@ -14,7 +15,8 @@ export function getDetails() {
       dispatch({
         type: FETCH_VENUE_SUCCESS,
         payload: {
-          venue: venue
+          venue: venue,
+          shouldDisplayNearbyVenues: false
         }
       });
     }
@@ -111,4 +113,15 @@ export function getInstagram() {
       onError(err);
     }
   };
+}
+
+export function dispatchNearbyVenues() {
+  return function(dispatch) {
+    dispatch({
+      type: NEARBY_VENUES_VISIBLE,
+      payload: {
+        shouldDisplayNearbyVenues: true
+      }
+    })
+  }
 }

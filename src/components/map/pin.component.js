@@ -9,18 +9,17 @@ const pinStyle = {
 	stroke: 'none'
 }
 
-const Pin = ({ size = 20, isContribution, onClick }) => {
+const Pin = ({ size = 20, isExtra }) => {
     const styledPin={
         ...pinStyle,
-        fill: isContribution ? '#FFA500' : '#d00',
+        fill: isExtra ? '#FFA500' : '#d00',
         transform: `translate(${-size / 2}px,${-size}px)`
     }
 	return (
 		<svg
 			height={size}
 			viewBox="0 0 24 24"
-			style={styledPin}
-			onClick={onClick}>
+			style={styledPin}>
 			<path d={ICON} />
 		</svg>
 	)

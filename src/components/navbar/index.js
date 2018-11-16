@@ -43,9 +43,9 @@ class NavBar extends React.Component {
 		let element = document.querySelector(elementToWatch)
 		let navbar = document.querySelector('.navbar')
 
-		if (scroll.y >= element.clientHeight) {
+		if (element && scroll.y >= element.clientHeight) {
 			navbar.setAttribute('class', 'navbar black')
-		} else {
+		} else if(element) {
 			navbar.setAttribute('class', 'navbar white')
 		}
 	}
