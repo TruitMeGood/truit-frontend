@@ -9,37 +9,37 @@ class NavBar extends React.Component {
 	}
 
 	componentDidMount() {
-    const { elementToWatch } = this.props
-		window.addEventListener('scroll', () => {
-			let supportPageOffset = window.pageXOffset !== undefined
-			let isCSS1Compat = (document.compatMode || '') === 'CSS1Compat'
-			let scroll = {
-				x: supportPageOffset
-					? window.pageXOffset
-					: isCSS1Compat
-					? document.documentElement.scrollLeft
-					: document.body.scrollLeft,
-				y: supportPageOffset
-					? window.pageYOffset
-					: isCSS1Compat
-					? document.documentElement.scrollTop
-					: document.body.scrollTop
-      }
-      let element = document.querySelector(elementToWatch)
-      let navbar = document.querySelector('.navbar')
-
-			if (scroll.y >= element.clientHeight) {
-        navbar.setAttribute('class', 'navbar black')
-      }
-      
-      else {
-        navbar.setAttribute('class', 'navbar white')
-			}
-		})
+		const { elementToWatch } = this.props
+		window.addEventListener('scroll', this.handleScroll(elementToWatch))
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll')
+		window.removeEventListener('scroll', this.handleScroll)
+	}
+
+	handleScroll(elementToWatch) {
+		let supportPageOffset = window.pageXOffset !== undefined
+		let isCSS1Compat = (document.compatMode || '') === 'CSS1Compat'
+		let scroll = {
+			x: supportPageOffset
+				? window.pageXOffset
+				: isCSS1Compat
+				? document.documentElement.scrollLeft
+				: document.body.scrollLeft,
+			y: supportPageOffset
+				? window.pageYOffset
+				: isCSS1Compat
+				? document.documentElement.scrollTop
+				: document.body.scrollTop
+		}
+		let element = document.querySelector(elementToWatch)
+		let navbar = document.querySelector('.navbar')
+
+		if (scroll.y >= element.clientHeight) {
+			navbar.setAttribute('class', 'navbar black')
+		} else {
+			navbar.setAttribute('class', 'navbar white')
+		}
 	}
 
 	render() {
