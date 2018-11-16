@@ -33,6 +33,7 @@
   font-size: 3vmin;
   font-weight: 200;
   width: fit-content;
+  max-width: 90%;
   line-height: 2;
   padding: 0 10px;
   background: rgba(0,0,0,0.5)
@@ -57,8 +58,9 @@
 .venue .content h2 {
   display: flex;
   justify-content: center;
-  font-size: 4vmin;
-  font-weight: 300;
+  text-align:center;
+  font-size: 5vmin;
+  font-weight: 400;
 }
 
 .venue .content p {
@@ -70,6 +72,8 @@
 
 .venue .content .instagram-posts {
   margin-top: 5%;
+  display: flex;
+  flex-direction: column;
 }
 
 .venue .content .instagram-posts .gallery {
@@ -88,7 +92,7 @@
   }
 
   .venue .content .infos h1 {
-    font-size: 7vmin;
+    font-size: 8vmin;
     font-weight: 200;
   }
   
