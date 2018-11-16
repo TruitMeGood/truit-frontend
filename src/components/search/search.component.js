@@ -8,6 +8,25 @@ import './style.css';
 const getSuggestionValue = suggestion => suggestion.display_name;
 const renderSuggestion = suggestion => <span>{suggestion.display_name}</span>;
 
+const randomPlaces = [
+  'Paris, France',
+  'Paju, South Korea',
+  'Cape Town, South Africa',
+  'Isfahan, Iran',
+  'Baturiti, Indonesia',
+  'Havana, Cuba',
+  'Wellington, New Zealand',
+  'Guanajuato, Mexico',
+  'Colombo, Sri Lanka',
+  'Dhaka, Bangladesh',
+  'Marrakesh, Morocco',
+  'Malindi, Kenya',
+  'Thessaloniki, Greece',
+  'Ketchikan, Alaska',
+  'Seydisfjordur, Iceland',
+  'Salzburg, Austria'
+]
+
 class SearchFullScreen extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +77,7 @@ class SearchFullScreen extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={{
-              placeholder: 'Paris, France',
+              placeholder: randomPlaces[Math.floor(Math.random() * randomPlaces.length)],
               value,
               onChange: this.onChange,
               autoFocus: true
