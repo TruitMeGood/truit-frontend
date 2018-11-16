@@ -49,7 +49,7 @@ class App extends Component {
             visibility: 'hidden'
           }}
         >
-          Made with ❤ by Jérémie Zarca
+          Made with ❤ by <a href="https://twitter.com/Jeremie__" target="_blank">Jérémie Zarca</a>
         </StickyFooter>
       </div>
     );

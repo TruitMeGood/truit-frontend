@@ -86,7 +86,7 @@
   max-height: 320px;
 }
 
-.venue .content .instagram-posts .gallery .thumbnail {
+.venue .content .instagram-posts .gallery .thumbnail img {
   width: -webkit-fill-available;
 }
 
