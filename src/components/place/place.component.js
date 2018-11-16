@@ -34,7 +34,9 @@ class Place extends Component {
         <div className="photo" style={style} />
         <div className="content">
           <h1>{`Hey that's cool you wanna visit ${city}, ${country} !`}</h1>
-          <h2>{`While you're at it, you might also wanna check out these ${items.length} amazing places`}</h2>
+          <p>{`While you're at it, you might also wanna check out these ${
+            items.length
+          } amazing places`}</p>
           <Gallery items={items} />
         </div>
       </div>

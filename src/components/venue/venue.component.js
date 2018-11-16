@@ -112,9 +112,9 @@ class Venue extends Component {
               </div>
             )}
             {!isLoading && venueName && !posts.length && !isError && (
-              <div className="instagram-posts">
-                <h2>{`Bummer, we couldn't find any instagram posts for this place...`}</h2>
-                <h2>{`This is your chance to shine !`}</h2>
+              <div className="instagram-empty">
+                <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
+                <p>{`This is your chance to shine !`}</p>
               </div>
             )}
             {!isLoading && venue && venue.nearby_places && (
