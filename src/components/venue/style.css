@@ -21,13 +21,21 @@
   flex-direction: column;
 }
 .venue .photo .infos h1 {
-  font-size: 7vmin;
-  font-weight: 200;
+  font-size: 8vmin;
+  font-weight: 400;
+  margin-bottom: 0;
+  width: fit-content;
+  padding: 0 10px;
+  background: rgba(0,0,0,0.5)
 }
 
 .venue .photo .infos p {
   font-size: 3vmin;
-  font-weight: 400;
+  font-weight: 200;
+  width: fit-content;
+  line-height: 2;
+  padding: 0 10px;
+  background: rgba(0,0,0,0.5)
 }
 
 .venue .content .infos h1, .venue .content .infos p {
