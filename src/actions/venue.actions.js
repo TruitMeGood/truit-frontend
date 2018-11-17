@@ -103,7 +103,7 @@ export function getFoursquareDetails() {
           longitude: place.coordinates.lng
         }
       });
-      const venue = venues.data[0];
+      const venue = venues.data;
       return onSuccess(venue);
     } catch (err) {
       return onError(err);
