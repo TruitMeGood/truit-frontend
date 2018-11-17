@@ -25,6 +25,7 @@ class Venue extends Component {
 
       await this.props.setVenue(venueId, venueName);
       await this.props.getDetails();
+      await this.props.getFoursquareDetails()
       await this.props.getInstagram();
     } catch (err) {
       console.log(err);

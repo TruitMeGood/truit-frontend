@@ -1,4 +1,4 @@
-import { mapToken } from '../config/config.json'
+import { mapToken } from '../config/config.json';
 
 const initialState = {
   mapToken: mapToken,
@@ -103,6 +103,25 @@ const rootReducer = (state = initialState, action) => {
         isLoading: false
       };
     case 'FETCH_VENUE_ERROR':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_FOURSQUARE':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: true,
+        isError: false
+      };
+    case 'FETCH_FOURSQUARE_SUCCESS':
+      return {
+        ...state,
+        ...action.payload,
+        isLoading: false
+      };
+    case 'FETCH_FOURSQUARE_ERROR':
       return {
         ...state,
         ...action.payload,
