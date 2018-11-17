@@ -103,7 +103,7 @@ export function getFoursquareDetails() {
           longitude: place.coordinates.lng
         }
       });
-      const venue = venues.data.venue;
+      const venue = venues.data[0];
       return onSuccess(venue);
     } catch (err) {
       return onError(err);
@@ -144,9 +144,15 @@ export function getInstagram() {
         method: 'POST',
         url: `/insta/${place.title}`,
         data: {
-          title: place.name,
-          latitude: place.location ? place.location.lat : place.coordinates.lat,
-          longitude: place.location ? place.location.lng : place.coordinates.lng
+          title: place.name ? place.name : place.title,
+          latitude:
+            place.location && place.location.lat
+              ? place.location.lat
+              : place.coordinates.lat,
+          longitude:
+            place.location && place.location.lng
+              ? place.location.lng
+              : place.coordinates.lng
         }
       });
       const mediaArray = venues.data.edge_location_to_media.edges.map(
