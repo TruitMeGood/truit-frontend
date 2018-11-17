@@ -1,7 +1,8 @@
 import axios from 'axios';
+import config from '../config/config.json';
 
 const api = axios.create({
-  baseURL: 'https://peaceful-ocean-64701.herokuapp.com'
+  baseURL: config.apiUrl
 });
 
 export { api };
