@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import Loading from '../loading';
-
 import Gallery from '../gallery';
 import NavBar from '../navbar';
 import Map from '../map';
+import ShareButtons from '../share-buttons';
 import './style.css';
+
+import { hashtagify } from '../../utils';
 
 class Venue extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class Venue extends Component {
 
       await this.props.setVenue(venueId, venueName);
       await this.props.getDetails();
-      await this.props.getFoursquareDetails()
+      await this.props.getFoursquareDetails();
       await this.props.getInstagram();
     } catch (err) {
       console.log(err);
@@ -71,7 +73,13 @@ class Venue extends Component {
 
   render() {
     const { venueName, isVisibilitySensorActive } = this.state;
-    const { posts, venue, isLoading, isError } = this.props;
+    const {
+      posts,
+      venue,
+      isLoading,
+      isInstagramLoading,
+      isInstagramError
+    } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
@@ -87,13 +95,38 @@ class Venue extends Component {
           <div className="photo" style={style}>
             <div className="infos">
               <h1>{venue.title}</h1>
-              <p>{venue.subtitle}</p>
+              <p>
+                {venue.subtitle}
+                <div className="share">
+                  <ShareButtons
+                    title={`I just found out about #${hashtagify(
+                      venue.title
+                    )} in #${hashtagify(venue.city)}, this is amazing !`}
+                    body={`We should definitely go there some day !\n\n${
+                      venue.subtitle
+                    }`}
+                  />
+                </div>
+              </p>
             </div>
           </div>
           <div className="content">
             <div className="infos">
               <h1>{venue.title}</h1>
-              <p>{venue.subtitle}</p>
+              <p>
+                {venue.subtitle}
+                <div className="share">
+                  <ShareButtons
+                    theme="black"
+                    title={`I just found out about #${hashtagify(
+                      venue.title
+                    )} in #${hashtagify(venue.city)}, this is amazing !`}
+                    body={`We should definitely go there some day !\n\n${
+                      venue.subtitle
+                    }`}
+                  />
+                </div>
+              </p>
             </div>
             {isLoading && (
               <Loading
@@ -106,18 +139,22 @@ class Venue extends Component {
               />
             )}
             {!isLoading && venue && venue.coordinates && <Map />}
-            {!isLoading && venueName && posts.length && (
+            {!isInstagramLoading && venueName && posts.length && (
               <div className="instagram-posts">
                 <h2>{`Check out these amazing photos taken at ${venueName}`}</h2>
                 <Gallery items={posts} />
               </div>
             )}
-            {!isLoading && venueName && !posts.length && !isError && (
-              <div className="instagram-empty">
-                <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
-                <p>{`This is your chance to shine !`}</p>
-              </div>
-            )}
+            {!isInstagramLoading &&
+              venue &&
+              venueName &&
+              !posts.length &&
+              !isInstagramError && (
+                <div className="instagram-empty">
+                  <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
+                  <p>{`This is your chance to shine !`}</p>
+                </div>
+              )}
             {!isLoading && venue && venue.nearby_places && (
               <div className="nearby-places">
                 <VisibilitySensor

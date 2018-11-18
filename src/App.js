@@ -9,7 +9,7 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 import NavBar from './components/navbar';
 
 class App extends Component {
- /* constructor() {
+  /* constructor() {
     super()
     this.state= {
       scrollTheme: 'white'
@@ -49,7 +49,14 @@ class App extends Component {
             visibility: 'hidden'
           }}
         >
-          Made with ❤ by <a href="https://twitter.com/Jeremie__" target="_blank">Jérémie Zarca</a>
+          Made with ❤ by{' '}
+          <a
+            href="https://twitter.com/Jeremie__"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Jérémie Zarca
+          </a>
         </StickyFooter>
       </div>
     );

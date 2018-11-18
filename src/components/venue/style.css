@@ -36,8 +36,12 @@
   width: fit-content;
   max-width: 90%;
   line-height: 2;
-  padding: 0 10px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.venue .photo .infos p .share {
+  padding: 10px;
 }
 
 .venue .content .infos h1,
@@ -129,6 +133,10 @@
   .venue .content .infos p {
     display: inherit;
     color: black;
+  }
+
+  .venue .content .infos p .share {
+    padding: 10px;
   }
 
   .venue .content .instagram-posts,
