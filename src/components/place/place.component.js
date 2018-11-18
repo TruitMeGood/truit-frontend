@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Gallery from '../gallery';
 import NavBar from '../navbar';
+import ShareButtons from '../share-buttons';
+
+import { hashtagify } from '../../utils';
+
 import './style.css';
 
 class Place extends Component {
@@ -37,6 +41,13 @@ class Place extends Component {
           <p>{`While you're at it, you might also wanna check out these ${
             items.length
           } amazing places`}</p>
+          <ShareButtons
+            theme="black"
+            title={`There are so many things to do in #${hashtagify(
+              city
+            )}, this is amazing !`}
+            body={`We should definitely go there some day !`}
+          />
           <Gallery items={items} />
         </div>
       </div>
