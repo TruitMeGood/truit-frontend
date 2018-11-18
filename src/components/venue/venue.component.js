@@ -73,13 +73,7 @@ class Venue extends Component {
 
   render() {
     const { venueName, isVisibilitySensorActive } = this.state;
-    const {
-      posts,
-      venue,
-      isLoading,
-      isInstagramLoading,
-      isInstagramError
-    } = this.props;
+    const { posts, venue, isLoading, isError } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
@@ -139,22 +133,18 @@ class Venue extends Component {
               />
             )}
             {!isLoading && venue && venue.coordinates && <Map />}
-            {!isInstagramLoading && venueName && posts.length && (
+            {!isLoading && venueName && posts.length && (
               <div className="instagram-posts">
                 <h2>{`Check out these amazing photos taken at ${venueName}`}</h2>
                 <Gallery items={posts} />
               </div>
             )}
-            {!isInstagramLoading &&
-              venue &&
-              venueName &&
-              !posts.length &&
-              !isInstagramError && (
-                <div className="instagram-empty">
-                  <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
-                  <p>{`This is your chance to shine !`}</p>
-                </div>
-              )}
+            {!isLoading && venue && venueName && !posts.length && !isError && (
+              <div className="instagram-empty">
+                <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
+                <p>{`This is your chance to shine !`}</p>
+              </div>
+            )}
             {!isLoading && venue && venue.nearby_places && (
               <div className="nearby-places">
                 <VisibilitySensor

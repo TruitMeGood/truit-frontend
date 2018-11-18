@@ -11,6 +11,7 @@ import Venue from './venue.component';
 
 const mapStateToProps = state => ({
   isLoading: state.rootReducer.isLoading,
+  isError: state.rootReducer.isError,
   venue: state.rootReducer.venue,
   posts: state.rootReducer.instaPosts,
   shouldDisplayNearbyVenues: state.rootReducer.shouldDisplayNearbyVenues,
