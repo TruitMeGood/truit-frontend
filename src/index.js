@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store, history } from './store';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
+import CookieConsent from 'react-cookie-consent';
 
 import App from './App';
 import Place from './components/place';
@@ -19,9 +20,32 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route name=":id" path="/places/:id" component={Place} />
-          <Route name=":id" path="/venues/:id" render={(props) => (<Venue {...props} />)} />
+          <Route
+            name=":id"
+            path="/venues/:id"
+            render={props => <Venue {...props} />}
+          />
           <Route render={() => <div>Miss</div>} />
         </Switch>
+        <CookieConsent
+          location="bottom"
+          style={{
+            background: 'white',
+            color: 'black',
+            textAlign: 'center',
+            fontWeight: 200
+          }}
+          buttonStyle={{
+            border: '1px solid black',
+            borderRadius: '5px',
+            background: 'white',
+            color: 'black',
+            fontSize: '13px',
+            fontWeight: 600
+          }}
+        >
+          This website uses cookies to enhance the user experience.
+        </CookieConsent>
       </div>
     </ConnectedRouter>
   </Provider>,

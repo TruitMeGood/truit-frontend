@@ -9,6 +9,7 @@
     "react": "^16.6.3",
     "react-animated-dots": "^1.0.0",
     "react-autosuggest": "^9.4.2",
+    "react-cookie-consent": "^1.9.0",
     "react-dom": "^16.6.3",
     "react-map-gl": "^4.0.1",
     "react-placeholder": "^3.0.1",
