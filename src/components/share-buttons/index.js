@@ -21,7 +21,7 @@ const ShareButtons = ({ title, body, theme = 'white' }) => {
       <FacebookShareButton
         url={pageUrl}
         quote={title}
-        hashtag={'#TruitMeGently'}
+        hashtag={'#TruitMeGood'}
       >
         <FacebookIcon
           size={32}
@@ -34,7 +34,7 @@ const ShareButtons = ({ title, body, theme = 'white' }) => {
         url={pageUrl}
         title={title}
         via={'Jeremie__'}
-        hashtags={['TruitMeGently']}
+        hashtags={['TruitMeGood']}
       >
         <TwitterIcon
           size={32}
