@@ -5,4 +5,5 @@
 
 .share-buttons .SocialMediaShareButton {
   padding-left: 2% !important;
+  width: fit-content;
 }
