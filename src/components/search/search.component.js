@@ -25,7 +25,7 @@ const randomPlaces = [
   'Ketchikan, Alaska',
   'Seydisfjordur, Iceland',
   'Salzburg, Austria'
-]
+];
 
 class SearchFullScreen extends Component {
   constructor(props) {
@@ -42,7 +42,9 @@ class SearchFullScreen extends Component {
   };
 
   gotoPlace = (event, { suggestion }) => {
-    const [city, country] = suggestion.display_name.split(', ');
+    const name = suggestion.display_name;
+    const [city, country] =
+      name.indexOf(', ') > -1 ? name.split(', ') : 'all, '.name.split(', ');
     this.props.gotoPlace(city, country);
   };
 
@@ -77,7 +79,8 @@ class SearchFullScreen extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={{
-              placeholder: randomPlaces[Math.floor(Math.random() * randomPlaces.length)],
+              placeholder:
+                randomPlaces[Math.floor(Math.random() * randomPlaces.length)],
               value,
               onChange: this.onChange,
               autoFocus: true
