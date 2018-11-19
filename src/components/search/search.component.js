@@ -42,9 +42,7 @@ class SearchFullScreen extends Component {
   };
 
   gotoPlace = (event, { suggestion }) => {
-    const name = suggestion.display_name;
-    const [city, country] =
-      name.indexOf(', ') > -1 ? name.split(', ') : 'all, '.name.split(', ');
+    const [city, country] = suggestion.display_name.split(', ');
     this.props.gotoPlace(city, country);
   };
 
