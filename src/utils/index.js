@@ -9,3 +9,7 @@ export const hashtagify = text => {
         .join('')
     : null;
 };
+
+export const filterGeos = (places) =>{
+    return places.filter(place => place.country !== '' && place.place_count > 0)
+}

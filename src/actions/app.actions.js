@@ -8,7 +8,7 @@ import {
   CLEAR_PLACES
 } from '../types';
 
-import { filterGeos } from './utils.js';
+import { filterGeos } from '../utils';
 
 export function getPopularItems() {
   return async (dispatch, getState, { api }) => {
