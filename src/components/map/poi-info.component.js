@@ -17,7 +17,6 @@ const PoiInfo = ({ info }) => {
               pathname: `/venues/${info.id}`,
               state: { title: info.title, location: info.location }
             }}
-            replace={true}
           >
             <button>View more</button>
           </Link>

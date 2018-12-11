@@ -20,7 +20,6 @@ const Gallery = ({ items, shouldWrapWithLink = true }) => {
           pathname: `/venues/${id}`,
           state: { title: title, location: location }
         }}
-        replace={true}
         key={index}
       >
         {galleryItem(title, img, index)}
