@@ -3,7 +3,8 @@ import { setPlace, getVenues, clearVenues } from '../../actions';
 import Place from './place.component';
 
 const mapStateToProps = state => ({
-  items: state.rootReducer.placeItems
+  items: state.rootReducer.placeItems,
+  isLoading: state.rootReducer.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

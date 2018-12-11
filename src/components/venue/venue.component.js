@@ -183,7 +183,7 @@ class Venue extends Component {
                   partialVisibility
                 >
                   <div>
-                    <h2>{`While you there, why don't you check these ${
+                    <h2>{`While you're there, why don't you check these ${
                       venue.nearby_places.length
                     } cool places next to ${venue.title} ?`}</h2>
                     <p>{`We added them on the map`}</p>

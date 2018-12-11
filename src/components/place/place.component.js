@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
 import Gallery from '../gallery';
+import Loading from '../loading';
 import NavBar from '../navbar';
 import ShareButtons from '../share-buttons';
 
@@ -33,7 +34,7 @@ class Place extends Component {
 
   render() {
     const { city, country } = this.state;
-    const { items } = this.props;
+    const { items, isLoading } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${city},${country}`,
@@ -59,17 +60,31 @@ class Place extends Component {
         <div className="photo" style={style} />
         <div className="content">
           <h1>{`Hey that's cool you wanna visit ${city}, ${country} !`}</h1>
-          <p>{`While you're at it, you might also wanna check out these ${
-            items.length
-          } amazing places`}</p>
-          <ShareButtons
-            theme="black"
-            title={`There are so many things to do in #${hashtagify(
-              city
-            )}, this is amazing !`}
-            body={`We should definitely go there some day !`}
-          />
-          <Gallery items={items} />
+          {isLoading && (
+            <Loading
+              text="Hold on, we're looking for the best things to see"
+              additionalStyle={{
+                paddingTop: 10,
+                fontSize: '5vmin',
+                fontWeight: 200
+              }}
+            />
+          )}
+          {!isLoading && (
+            <div>
+              <p>{`We found ${
+                items.length
+              } amazing places you might want to check`}</p>
+              <ShareButtons
+                theme="black"
+                title={`There are so many things to do in #${hashtagify(
+                  city
+                )}, this is amazing !`}
+                body={`We should definitely go there some day !`}
+              />
+              <Gallery items={items} />
+            </div>
+          )}
         </div>
       </div>
     );

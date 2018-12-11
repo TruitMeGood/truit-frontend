@@ -30,7 +30,7 @@ const Gallery = ({ items, shouldWrapWithLink = true }) => {
     );
   });
 
-  return items && <div className="gallery">{gallery}</div>;
+  return <div className="gallery">{gallery}</div>;
 };
 
 export default Gallery;
