@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactHtmlParser from 'react-html-parser';
+
 import './style.css';
 
 const Button = ({ onClick }) => (
@@ -14,11 +16,22 @@ export default class TextDescription extends Component {
       readMore: true
     };
     this.onButtonClick = this.onButtonClick.bind(this);
+    this.sanitizeText = this.sanitizeText.bind(this);
   }
 
   onButtonClick() {
     this.setState({
       readMore: !this.state.readMore
+    });
+  }
+
+  sanitizeText(text) {
+    return ReactHtmlParser(text, {
+      transform: function(node) {
+        if (node.type === 'tag' && node.name === 'a') {
+          return node.children[0].data;
+        }
+      }
     });
   }
 
@@ -31,13 +44,10 @@ export default class TextDescription extends Component {
           ? text
               .slice(0, 1)
               .map((paragraph, index) => (
-                <p
-                  key={index}
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
-                />
+                <p key={index}>{this.sanitizeText(paragraph)}</p>
               ))
           : text.map((paragraph, index) => (
-              <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+              <p key={index}>{this.sanitizeText(paragraph)}</p>
             ))}
         {readMore && <Button onClick={this.onButtonClick} />}
       </div>
