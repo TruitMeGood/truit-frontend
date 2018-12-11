@@ -16,7 +16,7 @@ import { hashtagify } from '../../utils';
 class Venue extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+
     this.state = {
       venueId: props.match.params.id.split('_')[0],
       venueName: props.location.state

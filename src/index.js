@@ -7,11 +7,19 @@ import { store, history } from './store';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import CookieConsent from 'react-cookie-consent';
+import ReactGA from 'react-ga';
 
 import App from './App';
 import Place from './components/place';
 import Venue from './components/venue';
 import './index.css';
+
+ReactGA.initialize('UA-129351406-1');
+
+history.listen((location, action) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 ReactDOM.render(
   <Provider store={store}>
