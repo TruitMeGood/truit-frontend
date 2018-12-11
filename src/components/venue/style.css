@@ -148,6 +148,8 @@
 
   .venue .content .infos div .share {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
   }
 
   .venue .content .instagram-posts,
