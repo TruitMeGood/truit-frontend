@@ -31,7 +31,8 @@ class SearchFullScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      searchHasBeenPerformed: false
     };
 
     this.debouncedLoadSuggestions = _.debounce(props.searchPlaces, 500);
@@ -47,16 +48,18 @@ class SearchFullScreen extends Component {
   };
 
   onSuggestionsFetchRequested = ({ value }) => {
+    this.setState({ searchHasBeenPerformed: true });
     this.debouncedLoadSuggestions(value);
   };
 
   onSuggestionsClearRequested = () => {
+    this.setState({ searchHasBeenPerformed: false });
     this.props.clearPlaces();
   };
 
   render() {
     const { isLoading, searchResults } = this.props;
-    const { value } = this.state;
+    const { value, searchHasBeenPerformed } = this.state;
     return (
       <div className="full-screen-search">
         <label className="search-label">
@@ -64,8 +67,10 @@ class SearchFullScreen extends Component {
             <Loading text="Fetching the best places for you" />
           ) : searchResults.length ? (
             `We found ${searchResults.length} results for your search`
+          ) : searchHasBeenPerformed ? (
+            `We couldn't find anything ...`
           ) : (
-            'Discover beautiful places where you travel'
+            `Discover beautiful places where you travel`
           )}
         </label>
         <div>
