@@ -1,33 +1,37 @@
 .poiInfo-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .poiInfo-header .poiInfo-title {
-	text-align: center;
+  text-align: center;
+  font-weight: 200;
 }
 .poiInfo-header .poiInfo-title:first-letter {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .poiInfo-header .poiInfo-date {
-	color: grey;
-	text-align: center;
+  color: grey;
+  text-align: center;
 }
 
 .poiInfo-cta {
-	margin-top: 10px;
-	display: flex;
-	justify-content: space-evenly;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .poiInfo-cta > * {
-	width: 100%;
+  width: 100%;
 }
 
 .poiInfo-cta button {
-	width: 100%;
-	border: 1px solid lightgray;
-	border-radius: 5px;
+  width: 100%;
+  font-size: 2vmin;
+  font-weight: 200;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px;
 }

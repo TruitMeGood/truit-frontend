@@ -1,10 +1,10 @@
 import React from 'react';
 import MapGL, { Marker, Popup } from 'react-map-gl';
 
-import './map.css';
-
 import Pin from './pin.component';
 import PoiInfo from './poi-info.component';
+
+import './map.css';
 
 class Map extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Map extends React.Component {
     this.state = {
       popupInfo: null
     };
+    this.map = React.createRef();
   }
 
   componentDidMount() {
@@ -23,6 +24,10 @@ class Map extends React.Component {
       longitude: lng,
       zoom: 11
     });
+    if (this.map.tap) {
+      this.map.tap.disable();
+      this.map.dragging.disable();
+    }
   }
 
   renderMarker = (poi, isExtra = false) => {
@@ -36,7 +41,7 @@ class Map extends React.Component {
         <Pin
           size={20}
           isExtra={isExtra}
-          onClick={() => this.setState({ popupInfo: poi.data })}
+          onClick={() => this.setState({ popupInfo: poi })}
         />
       </Marker>
     );
@@ -44,13 +49,16 @@ class Map extends React.Component {
 
   renderPopup() {
     const { popupInfo } = this.state;
+    console.log(popupInfo);
+    const location = popupInfo.coordinates;
     return (
       popupInfo && (
         <Popup
           tipSize={5}
           anchor="top"
-          longitude={popupInfo.location.longitude}
-          latitude={popupInfo.location.latitude}
+          className="popup"
+          longitude={location ? location.lng : 0}
+          latitude={location ? location.lat : 0}
           onClose={() => this.setState({ popupInfo: null })}
         >
           <PoiInfo info={popupInfo} />
@@ -64,15 +72,16 @@ class Map extends React.Component {
       loadMap,
       mapState,
       mapToken,
-      mapLoaded,
       onChangeViewport,
       shouldDisplayNearbyVenues,
       venue
     } = this.props;
+    const { popupInfo } = this.state;
     return (
       <div className="map-container">
         <MapGL
           {...mapState}
+          ref={this.map}
           mapStyle="mapbox://styles/mapbox/light-v9"
           showZoomControls={false}
           width={'100%'}
@@ -85,7 +94,7 @@ class Map extends React.Component {
           {venue && this.renderMarker(venue)}
           {shouldDisplayNearbyVenues &&
             venue.nearby_places.map(venue => this.renderMarker(venue, true))}
-          {mapLoaded && this.renderPopup()}
+          {popupInfo && this.renderPopup()}
         </MapGL>
       </div>
     );

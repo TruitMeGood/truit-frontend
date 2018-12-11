@@ -1,20 +1,42 @@
 .map-container {
-    border: 1px solid #fff;
-    vertical-align: middle;
-    display: flex;
-    line-height: 1.2;
-    text-align: left;
-    display: flex;
-    justify-content: space-evenly;
-    width: 100vw;
-    height: 70vh;
+  border: 1px solid #fff;
+  vertical-align: middle;
+  display: flex;
+  line-height: 1.2;
+  text-align: left;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 70vh;
 }
 .mapboxgl-map {
-    display: flex;
+  display: flex;
+}
+
+.popup {
+  background: white;
+  padding: 10px;
+  margin: 2px;
+  width: fit-content;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.popup .mapboxgl-popup-close-button {
+  border: none;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  float: right;
+  font-size: 3vmin;
 }
 
 @media only screen and (max-width: 800px) {
-    .map-container {
-        width: auto;
-    }
+  .map-container {
+    width: auto;
+  }
+
+  .popup {
+    padding: 5px;
+  }
 }

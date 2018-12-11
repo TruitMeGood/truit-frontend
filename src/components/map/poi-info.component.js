@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './poi-info.css';
 
 const PoiInfo = ({ info }) => {
@@ -6,11 +8,19 @@ const PoiInfo = ({ info }) => {
   return (
     <div className="poiInfo-container">
       <div className="poiInfo-header">
-        <div className="poiInfo-title">{info.name}</div>
+        <div className="poiInfo-title">{info.title}</div>
       </div>
       {isExtra && (
         <div className="poiInfo-cta">
-          <p>Distance : {info.distance}</p>
+          <Link
+            to={{
+              pathname: `/venues/${info.id}`,
+              state: { title: info.title, location: info.location }
+            }}
+            replace={true}
+          >
+            <button>View more</button>
+          </Link>
         </div>
       )}
     </div>

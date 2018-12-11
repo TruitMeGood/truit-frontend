@@ -9,7 +9,8 @@ export default history =>
   combineReducers({
     map: enhanceMapReducer(mapReducer, {
       scrollZoom: false,
-      dragPan: false
+      dragPan: false,
+      tap: false
     }),
     router: connectRouter(history),
     rootReducer
