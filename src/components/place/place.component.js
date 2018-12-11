@@ -74,7 +74,7 @@ class Place extends Component {
             <div>
               <p>{`We found ${
                 items.length
-              } amazing places you might want to check`}</p>
+              } amazing places you may want to see`}</p>
               <ShareButtons
                 theme="black"
                 title={`There are so many things to do in #${hashtagify(
