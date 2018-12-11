@@ -1,5 +1,6 @@
 import React from 'react';
 import StickyFooter from 'react-sticky-footer';
+import { Helmet } from 'react-helmet';
 
 import MainSection from './components/main-section';
 import Section from './components/section';
@@ -10,6 +11,17 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 
 const App = () => (
   <div className="App">
+    <Helmet>
+      <title>Truit - Discover beautiful places where you travel</title>
+      <meta
+        name="og:title"
+        content={'Discover beautiful places where you travel'}
+      />
+      <meta
+        name="twitter:title"
+        content={'Discover beautiful places where you travel'}
+      />
+    </Helmet>
     <NavBar theme="white" elementToWatch=".section" />
     <div className="section">
       <MainSection />

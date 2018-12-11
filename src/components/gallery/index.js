@@ -2,21 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-const Gallery = ({ items }) => {
+const Gallery = ({ items, shouldWrapWithLink = true }) => {
   if (!items) return;
 
-  const gallery = items.map(obj => {
-    return (
-      <Link to={`/venues/${obj.id}_${obj.title},${obj.location}`} replace key={obj.id}>
-        <div className="thumbnail">
-          <img src={obj.img} alt={obj.title} className={'source'} />
-          <div className="title">{obj.title}</div>
-        </div>
+  const galleryItem = (title, img, id) => (
+    <div className="thumbnail" key={id}>
+      <img src={img} alt={title} className={'source'} />
+      <div className="title">{title}</div>
+    </div>
+  );
+
+  const gallery = items.map((obj, index) => {
+    const { id, title, img, location } = obj;
+    return shouldWrapWithLink ? (
+      <Link
+        to={{
+          pathname: `/venues/${id}`,
+          state: { title: title, location: location }
+        }}
+        replace={true}
+        key={index}
+      >
+        {galleryItem(title, img, index)}
       </Link>
+    ) : (
+      galleryItem(title, img, index)
     );
   });
 
-  return (gallery && <div className="gallery">{gallery}</div>);
+  return items && <div className="gallery">{gallery}</div>;
 };
 
 export default Gallery;

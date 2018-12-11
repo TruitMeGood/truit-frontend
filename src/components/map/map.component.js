@@ -33,7 +33,11 @@ class Map extends React.Component {
         longitude={location ? location.lng : 0}
         latitude={location ? location.lat : 0}
       >
-        <Pin size={20} isExtra={isExtra} />
+        <Pin
+          size={20}
+          isExtra={isExtra}
+          onClick={() => this.setState({ popupInfo: poi.data })}
+        />
       </Marker>
     );
   };
@@ -60,6 +64,7 @@ class Map extends React.Component {
       loadMap,
       mapState,
       mapToken,
+      mapLoaded,
       onChangeViewport,
       shouldDisplayNearbyVenues,
       venue
@@ -80,6 +85,7 @@ class Map extends React.Component {
           {venue && this.renderMarker(venue)}
           {shouldDisplayNearbyVenues &&
             venue.nearby_places.map(venue => this.renderMarker(venue, true))}
+          {mapLoaded && this.renderPopup()}
         </MapGL>
       </div>
     );

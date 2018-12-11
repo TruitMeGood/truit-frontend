@@ -30,7 +30,7 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.venue .photo .infos p {
+.venue .photo .infos .subtitle {
   font-size: 4vmin;
   font-weight: 200;
   width: fit-content;
@@ -40,20 +40,20 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.venue .photo .infos p .share {
+.venue .photo .infos .share-buttons .share {
   padding: 10px;
 }
 
 .venue .content .infos h1,
-.venue .content .infos p {
+.venue .content .infos div {
   display: none;
 }
 
 .venue .content {
-  width: 100w;
+  width: 100vw;
   height: auto;
   flex: initial;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .venue .content .loading {
@@ -82,6 +82,17 @@
   margin-top: 5%;
   display: flex;
   flex-direction: column;
+}
+
+.venue .content .venue-description {
+  padding: 0 5%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.venue .content .venue-description p {
+  display: block;
 }
 
 .venue .content .instagram-empty {
@@ -124,18 +135,18 @@
     font-weight: 200;
   }
 
-  .venue .content .infos p {
+  .venue .content .infos div {
     font-size: 4vmin;
     font-weight: 400;
   }
 
   .venue .content .infos h1,
-  .venue .content .infos p {
+  .venue .content .infos div {
     display: inherit;
     color: black;
   }
 
-  .venue .content .infos p .share {
+  .venue .content .infos div .share {
     padding: 10px;
   }
 

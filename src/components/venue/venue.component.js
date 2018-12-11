@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
+import { Helmet } from 'react-helmet';
 
 import Loading from '../loading';
 import Gallery from '../gallery';
+import InstaGallery from '../insta-gallery';
+import TextDescription from '../text-description';
 import NavBar from '../navbar';
 import Map from '../map';
 import ShareButtons from '../share-buttons';
@@ -13,9 +16,12 @@ import { hashtagify } from '../../utils';
 class Venue extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       venueId: props.match.params.id.split('_')[0],
-      venueName: decodeURI(props.match.params.id.split('_')[1]),
+      venueName: props.location.state
+        ? `${props.location.state.title}, ${props.location.state.location}`
+        : '',
       isVisibilitySensorActive: true
     };
     this.dispatchNearbyPlaces = this.dispatchNearbyPlaces.bind(this);
@@ -35,7 +41,6 @@ class Venue extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('route chnaged', nextProps);
     if (nextProps && this.props.match.params.id !== nextProps.match.params.id) {
       window.onbeforeunload = function() {
         window.scrollTo(0, 0);
@@ -84,12 +89,36 @@ class Venue extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>
+            Truit -{' '}
+            {venueName !== ''
+              ? venueName
+              : 'Discover beautiful places where you travel'}
+          </title>
+          <meta
+            name="og:title"
+            content={
+              venueName !== ''
+                ? venueName
+                : 'Discover beautiful places where you travel'
+            }
+          />
+          <meta
+            name="twitter:title"
+            content={
+              venueName !== ''
+                ? venueName
+                : 'Discover beautiful places where you travel'
+            }
+          />
+        </Helmet>
         <NavBar theme="white" elementToWatch=".photo" />
         <div className="venue">
           <div className="photo" style={style}>
             <div className="infos">
               <h1>{venue.title}</h1>
-              <p>
+              <div className="subtitle">
                 {venue.subtitle}
                 <div className="share">
                   <ShareButtons
@@ -101,13 +130,13 @@ class Venue extends Component {
                     }`}
                   />
                 </div>
-              </p>
+              </div>
             </div>
           </div>
           <div className="content">
             <div className="infos">
               <h1>{venue.title}</h1>
-              <p>
+              <div>
                 {venue.subtitle}
                 <div className="share">
                   <ShareButtons
@@ -120,7 +149,7 @@ class Venue extends Component {
                     }`}
                   />
                 </div>
-              </p>
+              </div>
             </div>
             {isLoading && (
               <Loading
@@ -133,17 +162,18 @@ class Venue extends Component {
               />
             )}
             {!isLoading && venue && venue.coordinates && <Map />}
-            {!isLoading && venueName && posts.length && (
-              <div className="instagram-posts">
-                <h2>{`Check out these amazing photos taken at ${venueName}`}</h2>
-                <Gallery items={posts} />
+            {venue && venue.text && (
+              <div className="venue-description">
+                <TextDescription text={venue.text} />
               </div>
             )}
-            {!isLoading && venue && venueName && !posts.length && !isError && (
-              <div className="instagram-empty">
-                <h2>{`Bummer, we couldn't find any Instagram posts for this place...`}</h2>
-                <p>{`This is your chance to shine !`}</p>
-              </div>
+            {venue && (
+              <InstaGallery
+                isLoading={isLoading}
+                isError={isError}
+                venue={venue}
+                posts={posts}
+              />
             )}
             {!isLoading && venue && venue.nearby_places && (
               <div className="nearby-places">

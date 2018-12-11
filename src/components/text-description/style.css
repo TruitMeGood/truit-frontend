@@ -1,0 +1,30 @@
+.text-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 50px;
+}
+
+.text-button button {
+  border: 1px solid grey !important;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 3vmin;
+}
+
+.text-button button:hover,
+.text-button button:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .text-button {
+    display: flex;
+    width: 100%;
+    padding: 0 10px;
+    justify-content: space-evenly;
+  }
+
+  .text-button button {
+    width: 100%;
+  }
+}

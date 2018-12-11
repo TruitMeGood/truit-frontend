@@ -84,6 +84,11 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload,
         isLoading: false
       };
+    case 'CLEAR_VENUES':
+      return {
+        ...state,
+        placeItems: []
+      };
     case 'SET_VENUE':
       return {
         ...state,
@@ -93,7 +98,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        isLoading: true,
+        isLoading: false,
         isError: false
       };
     case 'FETCH_VENUE_SUCCESS':
@@ -112,7 +117,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        isLoading: true,
+        isLoading: false,
         isError: false
       };
     case 'FETCH_FOURSQUARE_SUCCESS':
@@ -131,7 +136,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        isLoading: true,
+        isLoading: false,
         isError: false
       };
     case 'FETCH_INSTAGRAM_SUCCESS':

@@ -1,5 +1,5 @@
 .gallery {
-  padding: 10%;
+  padding: 10% 0;
   display: flex;
   justify-content: center;
   flex-flow: wrap;

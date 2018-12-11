@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
+
 import Gallery from '../gallery';
 import NavBar from '../navbar';
 import ShareButtons from '../share-buttons';
@@ -10,17 +12,23 @@ import './style.css';
 class Place extends Component {
   constructor(props) {
     super(props);
-
+    const placeId = decodeURI(props.match.params.id);
     this.state = {
-      placeId: decodeURI(props.match.params.id),
-      city: decodeURI(props.match.params.id).split('_')[0],
-      country: decodeURI(props.match.params.id).split('_')[1]
+      placeId: placeId,
+      city: placeId.split('_')[0],
+      country: placeId.split('_')[1]
     };
   }
-  componentDidMount() {
-    const { city, country, placeId } = this.state;
-    this.props.setPlace(placeId, city, country);
-    this.props.getVenues();
+
+  async componentDidMount() {
+    try {
+      const { city, country, placeId } = this.state;
+      this.props.setPlace(placeId, city, country);
+      this.props.clearVenues();
+      await this.props.getVenues();
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   render() {
@@ -34,6 +42,19 @@ class Place extends Component {
 
     return (
       <div className="place">
+        <Helmet>
+          <title>
+            Truit - Places in {city}, {country}
+          </title>
+          <meta
+            name="og:title"
+            content={`Discover cool places in {city}, {country}`}
+          />
+          <meta
+            name="twitter:title"
+            content={`Discover cool places in {city}, {country}`}
+          />
+        </Helmet>
         <NavBar theme="black" />
         <div className="photo" style={style} />
         <div className="content">

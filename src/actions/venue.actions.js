@@ -98,6 +98,7 @@ export function getFoursquareDetails() {
         method: 'POST',
         url: `/venue/details/${place.title}`,
         data: {
+          venueId: place.id,
           title: place.title,
           latitude: place.coordinates.lat,
           longitude: place.coordinates.lng
@@ -144,6 +145,7 @@ export function getInstagram() {
         method: 'POST',
         url: `/insta/${place.title}`,
         data: {
+          venueId: place.id,
           title: place.name ? place.name : place.title,
           latitude:
             place.location && place.location.lat

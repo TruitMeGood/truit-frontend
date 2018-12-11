@@ -2,7 +2,8 @@ import {
   FETCH_PLACES,
   FETCH_PLACES_SUCCESS,
   FETCH_PLACES_ERROR,
-  SET_PLACE
+  SET_PLACE,
+  CLEAR_VENUES
 } from '../types';
 
 export function getVenues() {
@@ -34,7 +35,7 @@ export function getVenues() {
       const place = getState().rootReducer.place;
       const popular = await api({
         method: 'POST',
-        url: `/places/${place.city}`,
+        url: `/places/${place.city}_${place.country}`,
         data: {
           city: place.city,
           country: place.country
@@ -58,6 +59,14 @@ export function setPlace(placeId, city, country) {
           country
         }
       }
+    });
+  };
+}
+
+export function clearVenues() {
+  return dispatch => {
+    return dispatch({
+      type: CLEAR_VENUES
     });
   };
 }
