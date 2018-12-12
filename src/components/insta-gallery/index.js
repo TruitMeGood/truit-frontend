@@ -12,10 +12,7 @@ const InstaGallery = ({ isLoading, isError, venue, posts }) => {
   const renderInstaGallery = () => (
     <div className="instagram-posts">
       <h2>{`Check out these amazing photos taken at ${venue.title}`}</h2>
-      <Gallery
-        shouldWrapWithLink={false}
-        items={venue.shouldLookForInstagram ? posts : venue.pictures}
-      />
+      <Gallery shouldWrapWithLink={false} items={venue.pictures} />
     </div>
   );
 

@@ -172,7 +172,6 @@ class Venue extends Component {
                 isLoading={isVenueLoading}
                 isError={isVenueError}
                 venue={venue}
-                posts={instaPosts}
               />
             )}
             {!isVenueLoading && venue && venue.nearby_places && (
