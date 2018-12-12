@@ -78,7 +78,7 @@ class Venue extends Component {
 
   render() {
     const { venueName, isVisibilitySensorActive } = this.state;
-    const { posts, venue, isLoading, isError } = this.props;
+    const { instaPosts, venue, isVenueLoading, isVenueError } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(
@@ -151,7 +151,7 @@ class Venue extends Component {
                 </div>
               </div>
             </div>
-            {isLoading && (
+            {isVenueLoading && (
               <Loading
                 text="You're almost there"
                 additionalStyle={{
@@ -161,7 +161,7 @@ class Venue extends Component {
                 }}
               />
             )}
-            {!isLoading && venue && venue.coordinates && <Map />}
+            {!isVenueLoading && venue && venue.coordinates && <Map />}
             {venue && venue.text && (
               <div className="venue-description">
                 <TextDescription text={venue.text} />
@@ -169,13 +169,13 @@ class Venue extends Component {
             )}
             {venue && (
               <InstaGallery
-                isLoading={isLoading}
-                isError={isError}
+                isLoading={isVenueLoading}
+                isError={isVenueError}
                 venue={venue}
-                posts={posts}
+                posts={instaPosts}
               />
             )}
-            {!isLoading && venue && venue.nearby_places && (
+            {!isVenueLoading && venue && venue.nearby_places && (
               <div className="nearby-places">
                 <VisibilitySensor
                   onChange={this.dispatchNearbyPlaces}

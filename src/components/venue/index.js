@@ -10,11 +10,8 @@ import { onChangeViewport } from 'redux-map-gl';
 import Venue from './venue.component';
 
 const mapStateToProps = (state, ownProps) => ({
-  isLoading: state.rootReducer.isLoading,
-  isError: state.rootReducer.isError,
-  venue: state.rootReducer.venue,
-  posts: state.rootReducer.instaPosts,
-  shouldDisplayNearbyVenues: state.rootReducer.shouldDisplayNearbyVenues,
+  ...state.venue,
+  shouldDisplayNearbyVenues: state.map.shouldDisplayNearbyVenues,
   mapState: state.map.viewport.toJS(),
   ...ownProps
 });

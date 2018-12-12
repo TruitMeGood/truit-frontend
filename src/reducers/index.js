@@ -2,8 +2,10 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import enhanceMapReducer from 'redux-map-gl';
 
-import mapReducer from './mapReducer';
-import rootReducer from './rootReducer';
+import rootReducer from './root.reducer';
+import placeReducer from './place.reducer';
+import venueReducer from './venue.reducer';
+import mapReducer from './map.reducer';
 
 export default history =>
   combineReducers({
@@ -13,5 +15,7 @@ export default history =>
       tap: false
     }),
     router: connectRouter(history),
-    rootReducer
+    main: rootReducer,
+    place: placeReducer,
+    venue: venueReducer
   });

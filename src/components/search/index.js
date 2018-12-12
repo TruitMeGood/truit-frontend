@@ -4,8 +4,8 @@ import { push } from 'connected-react-router';
 import SearchFullScreen from './search.component';
 
 const mapStateToProps = state => ({
-  searchResults: state.rootReducer.searchResults,
-  isLoading: state.rootReducer.isLoading
+  searchResults: state.main.searchResults,
+  isSearchLoading: state.main.isSearchLoading
 });
 
 const mapDispatchToProps = dispatch => ({

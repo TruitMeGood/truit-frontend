@@ -3,8 +3,8 @@ import { getPopularItems } from '../../actions';
 import Section from './section.component';
 
 const mapStateToProps = state => ({
-  items: state.rootReducer.popularItems,
-  isLoading: state.rootReducer.isLoading
+  popularItems: state.main.popularItems,
+  isLoading: state.main.isPopularLoading
 });
 
 const mapDispatchToProps = dispatch => ({

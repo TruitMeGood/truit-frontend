@@ -9,17 +9,19 @@ import {
   FETCH_INSTAGRAM,
   FETCH_INSTAGRAM_SUCCESS,
   FETCH_INSTAGRAM_ERROR,
-  NEARBY_VENUES_VISIBLE
+  CLEAR_DISPLAY_NEARBY
 } from '../types';
 
 export function getDetails() {
   return async (dispatch, getState, { api }) => {
     function onSuccess(venue) {
       dispatch({
+        type: CLEAR_DISPLAY_NEARBY
+      });
+      dispatch({
         type: FETCH_VENUE_SUCCESS,
         payload: {
-          venue: venue,
-          shouldDisplayNearbyVenues: false
+          venue: venue
         }
       });
     }
@@ -38,7 +40,7 @@ export function getDetails() {
       dispatch({
         type: FETCH_VENUE
       });
-      const place = getState().rootReducer.venue;
+      const place = getState().venue.venue;
       const venue = await api({
         method: 'POST',
         url: `/place/${place.id}`,
@@ -74,7 +76,7 @@ export function getFoursquareDetails() {
       return dispatch({
         type: FETCH_FOURSQUARE_SUCCESS,
         payload: {
-          venue: { ...getState().rootReducer.venue, ...venueDetails }
+          venue: { ...getState().venue.venue, ...venueDetails }
         }
       });
     }
@@ -93,7 +95,7 @@ export function getFoursquareDetails() {
       dispatch({
         type: FETCH_FOURSQUARE
       });
-      const place = getState().rootReducer.venue;
+      const place = getState().venue.venue;
       const venues = await api({
         method: 'POST',
         url: `/venue/details/${place.title}`,
@@ -140,7 +142,7 @@ export function getInstagram() {
           instaPosts: []
         }
       });
-      const place = getState().rootReducer.venue;
+      const place = getState().venue.venue;
       const venues = await api({
         method: 'POST',
         url: `/insta/${place.title}`,
@@ -168,16 +170,5 @@ export function getInstagram() {
     } catch (err) {
       onError(err);
     }
-  };
-}
-
-export function dispatchNearbyVenues() {
-  return function(dispatch) {
-    dispatch({
-      type: NEARBY_VENUES_VISIBLE,
-      payload: {
-        shouldDisplayNearbyVenues: true
-      }
-    });
   };
 }

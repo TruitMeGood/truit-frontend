@@ -1,7 +1,7 @@
 import {
-  FETCH_PLACES,
-  FETCH_PLACES_SUCCESS,
-  FETCH_PLACES_ERROR,
+  FETCH_PLACE_VENUES,
+  FETCH_PLACE_VENUES_SUCCESS,
+  FETCH_PLACE_VENUES_ERROR,
   SET_PLACE,
   CLEAR_VENUES
 } from '../types';
@@ -10,9 +10,9 @@ export function getVenues() {
   return async (dispatch, getState, { api }) => {
     function onSuccess(items) {
       dispatch({
-        type: FETCH_PLACES_SUCCESS,
+        type: FETCH_PLACE_VENUES_SUCCESS,
         payload: {
-          placeItems: items,
+          placeVenuesItems: items,
           instaPosts: []
         }
       });
@@ -20,7 +20,7 @@ export function getVenues() {
 
     function onError(error) {
       dispatch({
-        type: FETCH_PLACES_ERROR,
+        type: FETCH_PLACE_VENUES_ERROR,
         payload: {
           error
         }
@@ -30,9 +30,9 @@ export function getVenues() {
 
     try {
       dispatch({
-        type: FETCH_PLACES
+        type: FETCH_PLACE_VENUES
       });
-      const place = getState().rootReducer.place;
+      const place = getState().place.place;
       const popular = await api({
         method: 'POST',
         url: `/places/${place.city}_${place.country}`,

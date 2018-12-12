@@ -8,10 +8,10 @@ class Section extends Component {
   }
 
   render() {
-    const { items, isLoading } = this.props;
+    const { popularItems, isPopularLoading } = this.props;
     return (
       <div>
-        {isLoading && !items.length && (
+        {isPopularLoading && !popularItems.length && (
           <Loading
             text="In a moment you'll discover the most popular places on Earth"
             additionalStyle={{
@@ -21,7 +21,7 @@ class Section extends Component {
             }}
           />
         )}
-        {items && <Gallery items={items} />}
+        {popularItems && <Gallery items={popularItems} />}
       </div>
     );
   }

@@ -34,7 +34,7 @@ class Place extends Component {
 
   render() {
     const { city, country } = this.state;
-    const { items, isLoading } = this.props;
+    const { placeVenuesItems, isPlaceLoading } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${city},${country}`,
@@ -60,7 +60,7 @@ class Place extends Component {
         <div className="photo" style={style} />
         <div className="content">
           <h1>{`Hey that's cool you wanna visit ${city}, ${country} !`}</h1>
-          {isLoading && (
+          {isPlaceLoading && (
             <Loading
               text="Hold on, we're looking for the best things to see"
               additionalStyle={{
@@ -70,10 +70,10 @@ class Place extends Component {
               }}
             />
           )}
-          {!isLoading && (
+          {!isPlaceLoading && (
             <div>
               <p>{`We found ${
-                items.length
+                placeVenuesItems.length
               } amazing places you may want to see`}</p>
               <ShareButtons
                 theme="black"
@@ -82,7 +82,7 @@ class Place extends Component {
                 )}, this is amazing !`}
                 body={`We should definitely go there some day !`}
               />
-              <Gallery items={items} />
+              <Gallery items={placeVenuesItems} />
             </div>
           )}
         </div>

@@ -58,12 +58,12 @@ class SearchFullScreen extends Component {
   };
 
   render() {
-    const { isLoading, searchResults } = this.props;
+    const { isSearchLoading, searchResults } = this.props;
     const { value, searchHasBeenPerformed } = this.state;
     return (
       <div className="full-screen-search">
         <label className="search-label">
-          {isLoading ? (
+          {isSearchLoading ? (
             <Loading text="Fetching the best places for you" />
           ) : searchResults.length ? (
             `We found ${searchResults.length} results for your search`
