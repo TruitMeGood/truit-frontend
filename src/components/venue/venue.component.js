@@ -78,7 +78,7 @@ class Venue extends Component {
 
   render() {
     const { venueName, isVisibilitySensorActive } = this.state;
-    const { instaPosts, venue, isVenueLoading, isVenueError } = this.props;
+    const { venue, isVenueLoading, isVenueError } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${encodeURI(

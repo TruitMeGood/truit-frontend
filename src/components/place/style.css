@@ -33,6 +33,17 @@
   padding: 0 10px;
 }
 
+.place .content .spotify-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.place .content .spotify-block .spotify-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 @media only screen and (max-width: 800px) {
   .place .photo {
     display: none;
@@ -42,5 +53,25 @@
     padding: 5%;
     padding-top: 50px;
     width: 100vw;
+  }
+
+  .place .content .spotify-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .place .content .spotify-block .spotify-player {
+    margin-top: 3%;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .place .content .spotify-block p {
+    display: none;
+  }
+
+  .place .content .spotify-block .spotify-player {
+    margin-top: 0%;
   }
 }

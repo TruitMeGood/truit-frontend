@@ -3,14 +3,20 @@ import {
   FETCH_PLACE_VENUES,
   FETCH_PLACE_VENUES_SUCCESS,
   FETCH_PLACE_VENUES_ERROR,
-  CLEAR_PLACES
+  CLEAR_PLACES,
+  FETCH_SPOTIFY,
+  FETCH_SPOTIFY_SUCCESS,
+  FETCH_SPOTIFY_ERROR
 } from '../types';
 
 const initialState = {
   isPlaceLoading: false,
   isPlaceError: false,
+  isSpotifyError: false,
+  isSpotifyLoading: false,
   place: {},
-  placeVenuesItems: []
+  placeVenuesItems: [],
+  spotify: {}
 };
 
 const placeReducer = (state = initialState, action) => {
@@ -40,10 +46,30 @@ const placeReducer = (state = initialState, action) => {
         isPlaceLoading: false,
         isPlaceError: true
       };
+    case FETCH_SPOTIFY:
+      return {
+        ...state,
+        isSpotifyLoading: true,
+        isSpotifyError: false
+      };
+    case FETCH_SPOTIFY_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        isSpotifyLoading: false
+      };
+    case FETCH_SPOTIFY_ERROR:
+      return {
+        ...state,
+        ...action.payload,
+        isSpotifyError: false,
+        isSpotifyLoading: true
+      };
     case CLEAR_PLACES:
       return {
         ...state,
-        placeVenuesItems: []
+        placeVenuesItems: [],
+        spotify: {}
       };
     default:
       return state;

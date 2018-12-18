@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import SpotifyPlayer from 'react-spotify-player';
 
 import Gallery from '../gallery';
 import Loading from '../loading';
@@ -26,6 +27,7 @@ class Place extends Component {
       const { city, country, placeId } = this.state;
       this.props.setPlace(placeId, city, country);
       this.props.clearVenues();
+      await this.props.getPlaylist();
       await this.props.getVenues();
     } catch (err) {
       console.log(err);
@@ -34,7 +36,13 @@ class Place extends Component {
 
   render() {
     const { city, country } = this.state;
-    const { placeVenuesItems, isPlaceLoading } = this.props;
+    const {
+      placeVenuesItems,
+      isPlaceLoading,
+      isSpotifyLoading,
+      isPlaylistFound,
+      spotify
+    } = this.props;
 
     const style = {
       backgroundImage: `url(https://source.unsplash.com/featured/?${city},${country}`,
@@ -69,6 +77,19 @@ class Place extends Component {
                 fontWeight: 200
               }}
             />
+          )}
+          {!isSpotifyLoading && isPlaylistFound && (
+            <div className="spotify-block">
+              <p>{`Here's some music to set the mood`}</p>
+              <div className="spotify-player">
+                <SpotifyPlayer
+                  uri={spotify.uri}
+                  size="compact"
+                  view="coverart"
+                  theme="white"
+                />
+              </div>
+            </div>
           )}
           {!isPlaceLoading && (
             <div>
