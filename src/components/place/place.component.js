@@ -78,7 +78,7 @@ class Place extends Component {
               }}
             />
           )}
-          {!isSpotifyLoading && isPlaylistFound && (
+          {!isPlaceLoading && !isSpotifyLoading && isPlaylistFound && (
             <div className="spotify-block">
               <p>{`Here's some music to set the mood`}</p>
               <div className="spotify-player">

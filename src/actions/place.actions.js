@@ -53,13 +53,17 @@ export function getVenues() {
 
 export function getSpotifyPlaylist() {
   return async (dispatch, getState, { api }) => {
-    function onSuccess(playlists) {
-      dispatch({
-        type: FETCH_SPOTIFY_SUCCESS,
-        payload: {
-          spotify: playlists.items[0]
-        }
-      });
+    function onSuccess(playlist) {
+      if (playlist.items.length) {
+        dispatch({
+          type: FETCH_SPOTIFY_SUCCESS,
+          payload: {
+            spotify: playlist.items[0]
+          }
+        });
+      } else {
+        onError({ message: 'No item' });
+      }
     }
 
     function onError(error) {
